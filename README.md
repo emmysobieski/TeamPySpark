@@ -39,6 +39,20 @@ Using regression analysis does create one challenge: what is the Y variable?  If
 
 Github, Jupyter notebook, pandas, SQL, Postgres, PGAdmin, QuickDBD, Scikitlearn
 
+# Technologies Used
+## Data Cleaning and Analysis
+Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python.   We will also use simple exploratory functions in excel.
+
+## Database Storage
+SQL is the database we intend to use, utilizing PGAdmin and Postgres, and we have built an ERD and have joined several sources of data.  Finally, we will integrate Flask as a pipeline to display the data.
+
+## Machine Learning
+SciKitLearn is the ML library we'll be using to create a classifier. We plan to use unsupervised machine learning and potentially linear regression as our target is the elements that drive success, not the binary outcome of success.  Our training and testing setup is currently scaling, PCA and then classification using K-Means, but this may migrate to Random Forest or back to linear regression as we optimize our models.
+
+## Dashboard
+In addition to using a Flask template, HTML and CSS will be used for website design, using D3.js for a fully functioning and interactive dashboard, and javascript plotly for graphs. We may also use Tableau.  It will be hosted on Tableau Public or github, or another website if we are using javascript.  We are not decided on hosting yet.
+
+
 ### Result of analysis
 
 ### Recommendation for future analysis
