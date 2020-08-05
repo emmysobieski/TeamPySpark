@@ -58,3 +58,6 @@ In addition to using a Flask template, HTML and CSS will be used for website des
 ### Recommendation for future analysis
 
 ### Anything the team would have done differently
+
+## Communication Protocols 
+Slack channel was used for discussing project details, sharing files and updating each other. Zoom calls weekly were a way of updating the project timeline and setting deadlines for one another. 
