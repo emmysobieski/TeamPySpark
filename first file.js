@@ -1,24 +1,44 @@
 function init() {
+    data = [{
+      x: [1, 2, 3, 4, 5],
+      y: [1, 2, 4, 8, 16] }];
+    Plotly.newPlot("bubble", data);
+};
+//init();
+d3.selectAll("#dropdownMenu").on("change", updatePlotly);
 
-    var selector = d3.select("#selDataset");
+function updatePlotly() {
+    var dropdownMenu = d3.select("#dropdownMenu");
+    var dataset = dropdownMenu.property("value");
+    var xData = [1, 2, 3, 4, 5];
+    var yData = [];
+    if (dataset === 'dataset1') {
+      yData = [1, 2, 4, 8, 16];
+    };
+    if (dataset === 'dataset2') {
+      yData = [1, 10, 100, 1000, 10000];
+    };
+    var trace = {
+      x: [xData],
+      y: [yData],
+    };
+    Plotly.restyle("bubble", trace);
+};
+//init();
   
-    d3.json("country_values.json").then((data) => {
-
-        var country = data.country;
-
-        country.forEach((sample) => {
-            
+function init() {
+    var selector = d3.select("#selDataset");
+    d3.json("country_dropdown.json").then((data) => {
+        var COUNTRY_NAME = data.COUNTRY_NAME;
+        COUNTRY_NAME.forEach((data) => {
             selector
-            
             .append("option")
-            
-            .text(sample)
-            
-            .property("value", sample);
-
+            .text(data)
+            .property("value", data);
         });
-
-init();
+})}
+//////////////////////////        
+//init();
 
         // Use first sample id to build the plots when page is opened
     // var firstID = sampleNames[0];
@@ -26,31 +46,33 @@ init();
     // buildCharts(firstID);
     // })
 
-    function optionChanged(newSample) {
+function optionChanged(newData) {
 
-        buildLoan(newSample);
+        buildLoan(newData);
 
-        buildCharts(newSample);
-    }
+        buildCharts(newData);
+}
 
         
-});
 
 
-function buildLoan(sample) {
+function buildLoan(data) {
 
-    d3.json("country_values.json").then((data) => {
+    d3.json("country_dropdown.json").then((data) => {
        
         var max_loan = data.max_loan;
+        var min_loan = data.min_loan;
+        var COUNTRY_NAME = data.COUNTRY_NAME;
+        var total_loan = data.total_loan;
 
-        var resultArray2 = max_loan.filter(sampleObj => sampleObj.id == sample);
+        var resultArray = data.filter(sampleObj => sampleObj.id == COUNTRY_NAME);
 
-        console.log(max_loan);
+        console.log(COUNTRY_NAME);
 
 
-        var result = resultArray2[0];
+        var result = resultArray[0];
 
-        var PANEL = d3.select("#sample-max_loan");
+        var PANEL = d3.select("#sample-COUNTRY_NAME");
 
         PANEL.html("");
 
@@ -61,20 +83,21 @@ function buildLoan(sample) {
         });
     });
 }
+///////////////////////////////
 
-// function buildCharts(sample) {
+ //function buildCharts(sample) {
 
-// d3.json("samples.json").then((data) => {
+ //d3.json("country_dropdown.json").then((data) => {
 
-//     var samples = data.samples;
+     //var dropdownData = data.country_dropdown;
 
-//     var resultArray = samples.filter(sampleObj => sampleObj.id == sample);
+     //var resultArray2 = dropdownData.filter(sampleObj => sampleObj.id == sample);
 
-//     var result = resultArray[0]
+     //var result2 = resultArray2[0]
 
-//     console.log(result);
+     //console.log(dropdownData);
 
-//     var otu_labels = result.otu_labels;
+     //var otu_labels = result.otu_labels;
 
 //     console.log(otu_labels);
 
@@ -167,5 +190,3 @@ function buildLoan(sample) {
 //     Plotly.plot("bubble", bubbleData, bubbleLayout);
 // });
 
-
- }
