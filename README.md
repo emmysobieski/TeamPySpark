@@ -1,12 +1,9 @@
 # TeamPySpark
 
-ReadMe Goals:
 
-1. Cohesive, structured outline of the project (this may include images, but they should be easy to follow and digest)
+ Link to dashboard (or link to video of dashboard demonstration)
 
-2. Link to dashboard (or link to video of dashboard demonstration)
-
-3. Link to Google Slides presentation
+ [Google Slides Presentation](https://docs.google.com/presentation/d/1_PMTb9D7JATLUvOpR_WDij9qfOgb7B80TdIEhfzbzYs/edit?usp=sharing)
 
 Selected topic
 # Microloans from the customer perspective
