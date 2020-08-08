@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <title>About the Kiva Dataset</title>
+      
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+      
+        <!-- Custom styles for this template -->
+        <link href="css/business-casual.min.css" rel="stylesheet">
+      
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style>
+          .chart {
+            max-height: calc(200px + 20px) !important;
+            overflow: hidden;
+          }
+          .jumbotron {
+          background-image: url(https://frontiersinblog.files.wordpress.com/2019/09/frontiers-in-oncology-bacterial-immunotherapy.jpg);
+          background-size: 100% 100%;
+          text-align: center;
+          }
+          body {background-color: whitesmoke;}
+      
+          div.polaroid {
+            width: 284px;
+            padding: 10px 10px 20px 10px;
+            border: 1px solid #BFBFBF;
+            background-color: white;
+            box-shadow: 10px 10px 5px #aaaaaa;
+            }
+            div.rotate_right {
+              float: left;
+              -ms-transform: rotate(7deg); /* IE 9 */
+              -webkit-transform: rotate(7deg); /* Safari */
+              transform: rotate(7deg);
+            }
+      
+            div.rotate_left {
+              float: left;
+              -ms-transform: rotate(-8deg); /* IE 9 */
+              -webkit-transform: rotate(-8deg); /* Safari */
+              transform: rotate(-8deg);
+            }
+        </style>
+      </head>
+
+<body>
+  <!-- Navigation bar --> 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful</a>
+        <a class="nav-item nav-link" href="dashboard.html">Explore the data</a>
+        <a class="nav-item nav-link" href="outliers.html">Explore outliers</a>
+      </div>
+    </div>
+  </nav>
+
+  <br /><br /><br /><br />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Micro Loans Dashboard</h1>
+        <p>Use the interactive charts below to explore the dataset</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="well">
+          <h5>Country Details:</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Country Demographics</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body" bg="light" shadow="p-3 mb-5 bg-white rounded"></div>
+        </div>    
+      </div>
+      <div class="col-md-6">
+        <div id="bar"><p class="bg-info"></p></div>
+      </div>
+      <div class="col-md-6">
+        <div id="bubble"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div id="box"></div>
+        <div class="col-md-6">
+            <div id="box"></div>
+          </div>
+          <div class="col-md-6">
+            <div id="box"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="js/kivaplots.js"></script>
+
+
+  <footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0 small">Copyright &copy; Your Website 2020</p>
+    </div>
+  </footer>
+  
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+  </body>
+  
+  </html>
+  
