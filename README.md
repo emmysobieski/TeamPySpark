@@ -1,6 +1,6 @@
 # TeamPySpark
 
-                   ![Website Landing Page Image](Misc/LP.png)
+![Website Landing Page Image](Misc/LP.png)
  
 Link to dashboard (or link to video of dashboard demonstration)
 
@@ -18,11 +18,11 @@ Today income inequality is the worst in decades.  We have seen this in the US an
 ##### Data utilized to complete the analysis:
 Kiva.org provides robust snapshot data from their database semi-regularly. The snapshot includes three databases:
 
-        * Loans: which describes the individual loan
-        * Lenders: which contains details about the lenders who bolster the community
-        * Loans_lenders: which includes information about the individual ventures that are funded including country, descriptions, tags and categories, and relevant funding information.
-        * Additional relevant data was discovered on Kaggle about Kiva loan locations.
-        * Additionally, the PySpark team sought out a datasource from the United Nations which provides an array of critical metrics about the countries where these loans are issued.
+      * Loans: which describes the individual loan
+      * Lenders: which contains details about the lenders who bolster the community
+      * Loans_lenders: which includes information about the individual ventures that are funded including country, descriptions, tags and categories, and relevant funding information.
+      * Additional relevant data was discovered on Kaggle about Kiva loan locations.
+      * Additionally, the PySpark team sought out a datasource from the United Nations which provides an array of critical metrics about the countries where these loans are issued.
 
 ##### Questions the team hopes to answer with the data
 Often when analysts look at microloans, the lens and argument is that even though the loans are small and for those who do not have means, the repayment rates are quite attractive, in that few of these loans default.  So analysis has centered on looking at what defaults, avoiding defaults and predicting the best loans to make.  All this analysis is from the perspective of the LENDER.
@@ -40,7 +40,7 @@ Using regression analysis does create one challenge: what is the Y variable?  If
 ## Technological Components
 
 ##### Technologies, languages, tools, and algorithms used throughout the project
-Github, Jupyter notebook, pandas, SQL, Postgres, PGAdmin, QuickDBD, Scikitlearn
+    Github, Jupyter notebook, pandas, SQL, Postgres, PGAdmin, QuickDBD, Scikitlearn
 
 
 ##### Data Cleaning and Analysis
