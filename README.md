@@ -9,10 +9,10 @@ Link to dashboard (or link to video of dashboard demonstration)
 Selected topic
 ## Microloans from the loan recipient's perspective
 
-##### Why microlending?
+#### Why microlending?
 Microlending has been a game changing way to address international poverty, social equity, and lack of educational parity.  Kiva, started in 2005 by a young couple, launched a new strategy to effect social impact through microlending: focus on the progress of the people rather than the situational poverty.  This landmark mindshift catalyzed a social movement where all people, everywhere are empowered to give opportunities to the world's most oppressed individuals at an unimaginable scale -- providing loans of more than $1 Billion dollars to date in 99 countries.
 
-##### Microloans are an important tool to help small entrepreneurs launch businesses.  
+#### Microloans are an important tool to help small entrepreneurs launch businesses.  
 Today income inequality is the worst in decades.  We have seen this in the US and globally where the rich get richer, the poor struggle more and the middle class of many societies is hollowed out.  
 
 ##### Data utilized to complete the analysis:
