@@ -1,6 +1,6 @@
 # TeamPySpark
 
-
+![Website Landing Page Image](LP.png)
  Link to dashboard (or link to video of dashboard demonstration)
 
  [Google Slides Presentation](https://docs.google.com/presentation/d/1_PMTb9D7JATLUvOpR_WDij9qfOgb7B80TdIEhfzbzYs/edit?usp=sharing)
