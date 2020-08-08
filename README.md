@@ -78,5 +78,8 @@ Bootstrap tools are integrated with JavaScipt code to create a website that will
 
 #### Anything the team would have done differently
 
+## Communication Protocols 
+The team was in continuous collaboration and communicaution using a dedicated Slack channel.  Beyond meeting in class as a full team, all members also joined a regular Monday meeting that lasted for an hour to touch base on project details and continue forward movement.  Daily Zoom calls between team members took place to collaborate on various project components, assignment of activities, and project idea generation.  
+
 ## References
 
