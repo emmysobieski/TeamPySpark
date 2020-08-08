@@ -1,9 +1,9 @@
 function init() {
     var selector = d3.select("#selDataset");
-    d3.json("samples.json").then((data) => {
+    d3.json("dashboard_data.json").then((data) => {
       console.log(data);
-      var sampleNames = data.names;
-      sampleNames.forEach((sample) => {
+      var sampleNames = data.COUNTRY_NAME;
+      [sampleNames].forEach(function(sample) { console.log(sample); 
         selector
           .append("option")
           .text(sample)
@@ -12,52 +12,57 @@ function init() {
   });
 }
   
-  init();
+init();
+
+
   function optionChanged(newSample) {
+    console.log(newSample);
     buildMetadata(newSample);
-    buildCharts(newSample);
-    buildCharts2(newSample);
+    //buildCharts(newSample);
+    //buildCharts2(newSample);
   }
 
   function pageLoad(item) {
-    //get_940 = result.id[940]
-    d3.json("samples.json").then((data) => {
-    //d3.select(window).on("load", get_940);
-    buildMetadata(940);
-    buildCharts(940);
-    buildCharts2(940);
+    //get_country = result.COUNTRY_NAME[0]
+
+    d3.json("dashboard_data.json").then((data) => {
+    d3.select(window).on("load", data.COUNTRY_NAME);
+    buildMetadata("Afghanistan");
+    //buildCharts("Afghanistan");
+    //buildCharts2("Afghanistan");
   });
 }
 window.onload = pageLoad();
 
 
   function buildMetadata(sample) {
-    d3.json("samples.json").then((data) => {
+    d3.json("dashboard_data.json").then((data) => {
 
-      var metadata = data.metadata;
-      var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
-      var result = resultArray[0];
+      //var metadata = data.metadata;
+      //var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+      //var result = resultArray[0];
       var PANEL = d3.select("#sample-metadata");
   
       PANEL.html("");
-      PANEL.append("h6").text(["ID: " + result.id]);
-      PANEL.append("h6").text(["ETHNICITY: " + result.ethnicity]);
-      PANEL.append("h6").text(["GENDER: " + result.gender]);
-      PANEL.append("h6").text(["AGE: " + result.age]);
-      PANEL.append("h6").text(["LOCATION: " + result.location]);
-      PANEL.append("h6").text(["BBTYPE: " + result.bbtype]);
-      PANEL.append("h6").text(["WFREQ: " + result.wfreq]);
+      PANEL.append("h6").text(["Total Loans: " + data.total_loan[0]]);
+      PANEL.append("h6").text(["Minimum Individual Loan: " + data.min_loan[0]]);
+      PANEL.append("h6").text(["Maximum Individual Loan: " + data.max_loan[0]]);
+      PANEL.append("h6").text(["Country Population(2017): " + data.population_in_thousands_2017[0]]);
+      PANEL.append("h6").text(["Gender Ratio (1m:100f): " + data.sex_ratio_m_per_100_f_2017[0]]);
+      PANEL.append("h6").text(["GDP in US$: " + data.gross_domestic_product_million_current_us$[0]]);
+      PANEL.append("h6").text(["Unemployment: " + data.unemployment_percent_of_labour_force[0]]);
+      PANEL.append("h6").text(["Fertility Rate: " + data.fertility_rate_total_live_births_per_woman[0]]);
     });
   }
 
 
 //function for accessing data and making charts
     function buildCharts(sample) {
-        d3.json("samples.json").then((data) => {
+        d3.json("dashboard_data.json").then((data) => {
         console.log("hello");
         var metadata = data.metadata;
         var samples = data.samples;
-        var resultsArray = samples.filter(sample_object => sample_object.id == sample);
+        var resultsArray = samples.filter(sample_object => sample_object.COUNTRY_NAME == sample);
         var result = resultsArray[0];
         console.log(result);
 
@@ -93,7 +98,7 @@ window.onload = pageLoad();
 }
     // creating a bubble chart
     function buildCharts2(sample) {
-        d3.json("samples.json").then((data) => {
+        d3.json("dashboard_data.json").then((data) => {
                 console.log("hello");
             //var metadata = data.metadata;
             var samples = data.samples;
