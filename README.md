@@ -1,7 +1,8 @@
 # TeamPySpark
 
-![Website Landing Page Image](Misc/LP.png)
- Link to dashboard (or link to video of dashboard demonstration)
+                   ![Website Landing Page Image](Misc/LP.png)
+ 
+Link to dashboard (or link to video of dashboard demonstration)
 
  [Google Slides Presentation](https://docs.google.com/presentation/d/1_PMTb9D7JATLUvOpR_WDij9qfOgb7B80TdIEhfzbzYs/edit?usp=sharing)
 
@@ -16,6 +17,7 @@ Today income inequality is the worst in decades.  We have seen this in the US an
 
 ##### Data utilized to complete the analysis:
 Kiva.org provides robust snapshot data from their database semi-regularly. The snapshot includes three databases:
+
         * Loans: which describes the individual loan
         * Lenders: which contains details about the lenders who bolster the community
         * Loans_lenders: which includes information about the individual ventures that are funded including country, descriptions, tags and categories, and relevant funding information.
