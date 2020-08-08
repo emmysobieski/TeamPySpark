@@ -1,19 +1,22 @@
+
+
+
 function init() {
     var selector = d3.select("#selDataset");
     d3.json("dashboard_data.json").then((data) => {
       console.log(data);
-      var sampleNames = data.COUNTRY_NAME;
-      [sampleNames].forEach(function(sample) { console.log(sample); 
+      var array = Object.keys(data.COUNTRY_NAME);
+      //var sampleNames = data.COUNTRY_NAME;
+      array.forEach(function(sample) { console.log(sample); 
         selector
           .append("option")
-          .text(sample)
+          .text(data.COUNTRY_NAME[sample])
           .property("value", sample);
       });
   });
 }
   
 init();
-
 
   function optionChanged(newSample) {
     console.log(newSample);
@@ -22,12 +25,12 @@ init();
     //buildCharts2(newSample);
   }
 
-  function pageLoad(item) {
+  function pageLoad() {
     //get_country = result.COUNTRY_NAME[0]
-
+    //var country = COUNTRY_NAME[0]
     d3.json("dashboard_data.json").then((data) => {
-    d3.select(window).on("load", data.COUNTRY_NAME);
-    buildMetadata("Afghanistan");
+    d3.select(window).on("load", data.sample);
+    buildMetadata(0);
     //buildCharts("Afghanistan");
     //buildCharts2("Afghanistan");
   });
@@ -37,21 +40,17 @@ window.onload = pageLoad();
 
   function buildMetadata(sample) {
     d3.json("dashboard_data.json").then((data) => {
-
-      //var metadata = data.metadata;
-      //var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
-      //var result = resultArray[0];
       var PANEL = d3.select("#sample-metadata");
   
       PANEL.html("");
-      PANEL.append("h6").text(["Total Loans: " + data.total_loan[0]]);
-      PANEL.append("h6").text(["Minimum Individual Loan: " + data.min_loan[0]]);
-      PANEL.append("h6").text(["Maximum Individual Loan: " + data.max_loan[0]]);
-      PANEL.append("h6").text(["Country Population(2017): " + data.population_in_thousands_2017[0]]);
-      PANEL.append("h6").text(["Gender Ratio (1m:100f): " + data.sex_ratio_m_per_100_f_2017[0]]);
-      PANEL.append("h6").text(["GDP in US$: " + data.gross_domestic_product_million_current_us$[0]]);
-      PANEL.append("h6").text(["Unemployment: " + data.unemployment_percent_of_labour_force[0]]);
-      PANEL.append("h6").text(["Fertility Rate: " + data.fertility_rate_total_live_births_per_woman[0]]);
+      PANEL.append("h6").text(["Total Loans: " + data.total_loan[sample]]);
+      PANEL.append("h6").text(["Minimum Individual Loan: " + data.min_loan[sample]]);
+      PANEL.append("h6").text(["Maximum Individual Loan: " + data.max_loan[sample]]);
+      PANEL.append("h6").text(["Country Population(2017): " + data.population_in_thousands_2017[sample]]);
+      PANEL.append("h6").text(["Gender Ratio (1m:100f): " + data.sex_ratio_m_per_100_f_2017[sample]]);
+      PANEL.append("h6").text(["GDP in US$: " + data.gross_domestic_product_million_current_us$[sample]]);
+      PANEL.append("h6").text(["Unemployment: " + data.unemployment_percent_of_labour_force[sample]]);
+      PANEL.append("h6").text(["Fertility Rate: " + data.fertility_rate_total_live_births_per_woman[sample]]);
     });
   }
 
