@@ -37,11 +37,24 @@ Normally for lending questions, it would be a binary classification challenge.  
 
 Using regression analysis does create one challenge: what is the Y variable?  If all the loans in the Kiva.org data are actual loans, how can we define success.  We are looking at %funded vs goal, number of lenders a project attracts, and the dollar per lender as measures that lenders on the platform found that loan attractive and thus more likely to receive funding.
 
+* Multiple machine learning models were examined using two parallel structures: a binary outcome, and a multifactorial outcome with six bucketed categories
+* The models used in order to effect the best outcome include: 
+ * Linear Regression
+ * Logistic Regression
+ * Support Vector Machines with Linear and Radical Basis Kernels
+ * Random Forest
+
 ## Technological Components
 
 #### Technologies, languages, tools, and algorithms used throughout the project
-    Github, Jupyter notebook, pandas, SQL, Postgres, PGAdmin, QuickDBD, Scikitlearn
-
+    * Python and Pandas libraries used for data manipulation and exploration 
+    * Plotly, Matplotlib, Google Charts for visualizations 
+    * D3, JavaScript and HTML for dashboard creation 
+    * PostgresSQL in PGAdmin for data storage and joining databases
+    * HTML, CSS and JavaScript for interactive web presentation
+    * Google Colab for running machine learning algorithms with NLP using PySpark
+    * PCA, SciKitLearn, IMBLearn, Tensorflow executed in Jupyter Notebooks
+    * Google slides for presentation
 
 #### Data Cleaning and Analysis
 Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python.   We will also use simple exploratory functions in excel.
