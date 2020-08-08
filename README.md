@@ -39,10 +39,10 @@ Using regression analysis does create one challenge: what is the Y variable?  If
 
 * Multiple machine learning models were examined using two parallel structures: a binary outcome, and a multifactorial outcome with six bucketed categories
 * The models used in order to effect the best outcome include: 
- * Linear Regression
- * Logistic Regression
- * Support Vector Machines with Linear and Radical Basis Kernels
- * Random Forest
+ ** Linear Regression
+ ** Logistic Regression
+ ** Support Vector Machines with Linear and Radical Basis Kernels
+ ** Random Forest
 
 ## Technological Components
 
