@@ -32,6 +32,29 @@ Given that the idea of microloans is to help those without means use entrepreneu
 #### Description of the data exploration phase of the project
 Through the data exploration pre-processing steps, the team examined how the databases interconnected through entity relationship diagrams.  Additionally field values were unlocked and mapped to their column names. Columns with an overwhelming amount of null data were accessed for their feasibility in the data examination.  Signs with multiple string values that could be reassigned to categorial groups for ease in analysis were cleaned with functions that made the data easier to manipulate for use in machine learning tools.  Additionally, a column was added to the dataset that found the difference in time between two separate date columns to identify time to funding -- a data value that became critical to the machine learning framework that was used. 
 
+#### Specific Steps in Machine Learning Data Preprocessing:
+
+Import dependencies needed for data preprocessing, then:
+
+1. Explore column names to decide which may be un-necessary columns
+
+2. Create Y target.  Most loans are funded, so removed the few unfunded loans and defined success by calculating speed of funding of loan (elapsed time calculation).  Ran a distribution (it is skewed, so need to resample below), with mean at 12 days, so defined a binary classification for y of 12 days.  Less than 12 days is a successful funding experience for the borrower.  This becomes 1 in the dataframe, and 0 is unsuccessful in that it takes more than 12 days and has a long tailed distribution, so can take up to a year or more.  The FIRST issue is that 69% of the data was in the 1 category, so needs to be resampled. The SECOND ISSUE is that under or over 12 days is very binary at that mark.  For example one second over 12 days is a failure, but one second below 12 days is a success.  We tried to deal with this by re-bucketing into 5 weekly buckets.
+
+3. Bucketing time to funding in first week, second week, third week, fourth week, and 5th week and beyond.  The issue was that 50% of the data was in the 1 category, but ALSO the second largest chunk of data was in the 5 category, capturing the long tail of the distribution and lumping it together.  Every model we ran with this had the highest prediction success where the data was located, in 1 and 5, and overall model performance using this bucketing, even with resampling techniques, resulted in model performance from 40-45%.  The issue appears to be that with hand-sampling the data, it makes it harder for Random Oversampling or other resampling techniques to be effective, compared with sampling from two larger buckets above.
+
+4. Transform Gender.  Gender was one column of strings like male, female, female, female, male in all different combinations.  We transformed into a male column and female column where it counts the number of males or females in a column.  Then you read across both columns in a given row to see the total number of males and females.  We found a predominance of women borrowers, with 1.3 million count in either all women teams or women solo borrowers, vs 362 thousand males in either solo or all-male teams.
+
+5. Remove un-necessary or repetitive columns from the dataframe.
+
+6. Sent "TAGS" column which is full of hashtags like #women-owned to a dataframe and then a CSV for exploration using NLP and word clouds.
+
+7. Sampled data at 5% of the total because original file is 1.8 million rows even after all the eliminations.
+
+8. Removed null and NaaN values by row.
+
+9. Export the cleaned dataframe into a csv for easy importing into the machine learning notebook.  Datapreprocessing and machine learning notebooks are separate for easier recomputation.
+
+
 #### Description of the analysis phase of the project
 Normally for lending questions, it would be a binary classification challenge.  We look at it from the perspective of the borrower, ie what are the components of the application and business that led the loan to be succesful?  Thus we use regression analysis to see which elements of the application drive the most likelihood of success.
 
@@ -44,6 +67,45 @@ Using regression analysis does create one challenge: what is the Y variable?  If
       Logistic Regression
       Support Vector Machines with Linear and Radical Basis Kernels
       Random Forest
+
+
+#### Specific Steps in Machine Learning Modeling:
+
+1. Import the dependencies needed for scaling, PCA, machine learning, and model evaluation
+
+2. Import the clean dataframe via CSV upload, from the final dataframe CSV created in the end of the preprocessing notebook.
+
+3. Drop the Y value from the dataframe so we can predict it.
+
+4. Encode X with Get Dummies
+
+5. Perform the Train/Test Split
+
+6. Scale X_train and X_test
+
+7. Sampling: Random Oversampling had the best result for the least performance hit.  
+We tried Random Oversampling, SMOTE, Random Undersampling, Cluster Centroid, and Resampling using SMOTEEN on both binary classification and multiple classification datasets.
+
+8. PCA: we ran PCA on binary classification and multiple classification.
+We found that all dimension are fairly equally important, such that there was a linear relationship between the explainability and number of dimensions used.  Thus PCA was not helpful to reduce dimentionality.  This was the case with both classifications.
+
+9. LOGISTIC REGRESSION: Solid performance out of the gate at average of 69% precision, 67% recall, and f1 of 68%. We used random oversampled (ROS) data in the model, but it really didn't make a difference in the performance.  This could be an issue because 69% of the data is in the 1 category naturally, so we used the oversampled data to be sure we re-distributed the data so the accuracy was more trustworthy than just the same chance of the data being where it predicts.
+
+10. RANDOM FOREST - Binary Classification: We used ROS inputs and then tuned on the following parameters: n-estimates (50, 100, 200), max depth (originally set at 5, removed it and added 5-6 percentage points to the balanced accuracy, precision, recall and f1 scores.  This model started out less predictive than logistic, but once tuned, came out ahead, at 68.7% balanced accuracy (came in as high as 70.2 once with a different sample taken of the original dataset - because we only take 5% there is some variability), and 69% precision, 69% recall, and 69% f1.
+
+FAILED MODELS:
+
+11. LINEAR REGRESSION: Enourmous means squared error of -1.29e23 which is -349.59.  We DROPPED this model from our final notebook as linear regression does not appear to lend itself to this data.  
+
+12. SUPPORT VECTOR MACHINES (SVMs): SVMs using SVC library.  Both using the binary and multiple (bucketed) classification datasets, SVMs came in 62-63% accuracy for the binary classification and even less for multiple classification data and took 30 minutes to multiple hours to complete. We DROPPED this model from out final notebook.
+
+13. RANDOM FOREST - Multiple classification:  We used ROS inputs and then tuned on the following parameters: n-estimates (50, 100, 200), max depth (originally set at 5, removed it and added 5-6 percentage points to the balanced accuracy, precision, recall and f1 scores. Bucketing hurt the model performance.  Our thesis is that by hand "distributing" the data in equal weeks, up to week 5, then the entire tail of the data in week 5, we made it more difficult to resample the data as it was bar-belled in two buckets, the first and the last.  The result was model performance of 40-45%, even after tuning the model extensively as described in the first part of this paragraph.
+
+14. NEURAL NETS: We did not run neural nets as (1) We were wanting to understand components that were important to the speed of getting a loan funded, so could not use multiple layers in a neural net and get this information.  (2) If we used one layer in a neural net, this is very close to how a SVM acts, so we used the SVM instead.
+
+15. MODEL PERFORMANCE MEASUREMENT: When we were using oversampling, we used imbalanced classification report and balanced accuracy score to take into account we were using resampled data.  
+
+16. CONCLUSION: We were able to see a large variance and improvement in model performance with (1) cleaning and re-sampling data, (2) data selection between binary or multiple classification of y, (3) along with model tuning, and (4) Model selection.  Because these microloans are from all over the world, and because most are pre-funded, there is likely important pieces of data missing from the original dataset, such as back-door relationships with large foundations who help the underpriveledged, groups that help bring some of these borrowers through the process, and the always present but hard to measure human factor of personal networking.  This missing data is likely why our models struggled to surpass 70% accuracy, though we did select the ones with the most balance.  Finally, because all these loans fund, and thus we were measuring speed of funding, that speed may have to do with other external forces that we are not aware of, that is not in the data, such as certain regions or funders being faster or slower, no matter who the borrower is or what the loan is for.
 
 ## Technological Components
 
