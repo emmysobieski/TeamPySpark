@@ -93,13 +93,17 @@ We found that all dimension are fairly equally important, such that there was a 
 
 ![Statistical Analysis of Logistic Regression using Binary Classification:](https://github.com/emmysobieski/TeamPySpark/blob/Emmy/LogisticRegressionAnalysis.png)
 
-From the above statistics you can see________________________________
+What we are looking for in our logistic regression model is the ability for a borrower to predict the likelihood their loan will fund un under 12 days, which is represented by y = 1.  Therefore, we want to capture the highest percentage of true positives in the cases when it categorizes the result as 1, ie precision = True positives/(All positives).  Recall or sensitivity represents capturing everyone who is actually positive at the expense of forecasting too many positives.  For our purposes, (1) We want to focus on the statistics around the 1 not the 0 category, while maintaining some balance between precision and recall as expressed by f1.  
+
+As you can see from the analysis image above, for logistic regression precision is 77%, recall is 73%, and f1 is 75%.  For reasons stated in the previous paragraph, we want to favor precision.  Average scores are the most balanced in this model at 69% precision, 69% recall, and 69% f1 which is showing a nice balance between precision and recall. Therefore, because we favor precision, THE LOGISTIC REGRESSION MODEL IS OUR BEST MODEL.
 
 10. RANDOM FOREST - Binary Classification: We used ROS inputs and then tuned on the following parameters: n-estimates (50, 100, 200), max depth (originally set at 5, removed it and added 5-6 percentage points to the balanced accuracy, precision, recall and f1 scores.  This model started out less predictive than logistic, but once tuned, came out ahead, at 68.7% balanced accuracy (came in as high as 70.2 once with a different sample taken of the original dataset - because we only take 5% there is some variability), and 69% precision, 69% recall, and 69% f1.
 
 ![Statistical Analysis of Random Forest Model using Binary Classification](https://github.com/emmysobieski/TeamPySpark/blob/Emmy/RandomForest.png)
 
-From the above statistics you can see________________________________
+What we are looking for in our random forest model is the ability for a borrower to predict the likelihood their loan will fund un under 12 days, which is represented by y = 1.  Like in logistic regression, we want to capture the highest percentage of true positives in the cases when it categorizes the result as 1, ie precision = True positives/(All positives).  Recall or sensitivity represents capturing everyone who is actually positive at the expense of forecasting too many positives.  For our purposes, (1) We want to focus on the statistics around the 1 not the 0 category, while maintaining some balance between precision and recall as expressed by f1.  
+
+As you can see from the analysis image above, random forest precision is 73%, recall is 83%, and f1 is 78%.  While recall and f1 are higher for Random Forest, we give up 4 points of precision which is what we are optimizing for, while still looking for balance in our overall f1.  Average scores are slightly lower in random forest than in logistical at 68% precision, 69% recall, and 68% f1.  If it was just on average scores, the models would effectively be tied (notwithstanding the additional work of tuning Random Forest whereas logistical regression performed well out of the box), but because our focus is on precision of predicting 1, while not losing too much balance through average f1, logistical regression is our best model. 
 
 FAILED MODELS:
 
