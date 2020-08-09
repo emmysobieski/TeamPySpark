@@ -79,7 +79,7 @@ Using regression analysis does create one challenge: what is the Y variable?  If
 
 4. Encode X with Get Dummies
 
-5. Perform the Train/Test Split
+5. Perform the Train/Test Split using train_test_split(X,y, random_state=1, stratify=y)
 
 6. Scale X_train and X_test
 
