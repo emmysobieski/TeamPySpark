@@ -93,6 +93,10 @@ We found that all dimension are fairly equally important, such that there was a 
 
 10. RANDOM FOREST - Binary Classification: We used ROS inputs and then tuned on the following parameters: n-estimates (50, 100, 200), max depth (originally set at 5, removed it and added 5-6 percentage points to the balanced accuracy, precision, recall and f1 scores.  This model started out less predictive than logistic, but once tuned, came out ahead, at 68.7% balanced accuracy (came in as high as 70.2 once with a different sample taken of the original dataset - because we only take 5% there is some variability), and 69% precision, 69% recall, and 69% f1.
 
+https://github.com/emmysobieski/TeamPySpark/blob/Emmy/RandomForest.png
+
+From the above statistics you can see________________________________
+
 FAILED MODELS:
 
 11. LINEAR REGRESSION: Enourmous means squared error of -1.29e23 which is -349.59.  We DROPPED this model from our final notebook as linear regression does not appear to lend itself to this data.  
