@@ -1,0 +1,169 @@
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>Understanding Microlending through Analyzing Kiva Data</title>
+  
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+  
+    <!-- Custom styles for this template -->
+    <link href="css/business-casual.min.css" rel="stylesheet">
+  
+</head>
+
+
+
+<body>
+<!-- Navigation bar --> 
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #eb6841;">
+  <a class="navbar-brand" href="#">
+    <img class="d-inline-block align-top" src="img/pysparque.png" width="50" height="50" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home &nbsp;&nbsp;&nbsp;&nbsp;<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="about.html">About this project &nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="dashboard.html">Explore the data&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="outliers.html">Explore outliers&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Meet the team</a>
+    </div>
+  </div>
+</nav>
+<!--Meet the Team model (part of nav bar)-->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="myModalLabel">PySpark Team Members</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Don't you want to know all about the PySpark Team!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End navigation bar --> 
+
+  <div class="bg-faded rounded p-5">
+    <h2 class="section-heading mb-4">
+      <span class="section-heading-upper">Using Machine Learning to Support Loan Recipients</span>
+      <span class="section-heading-lower">Kiva Data Crunching</span>
+    </h2>
+    <p>We were able to see a large variance and improvement in model performance with (1) cleaning and re-sampling data, (2) data selection between binary or multiple classification of y, (3) along with model tuning, and (4) Model selection. Because these microloans are from all over the world, and because most are pre-funded, there is likely important pieces of data missing from the original dataset, such as back-door relationships with large foundations who help the underpriveledged, groups that help bring some of these borrowers through the process, and the always present but hard to measure human factor of personal networking. This missing data is likely why our models struggled to surpass 70% accuracy, though we did select the ones with the most balance. Finally, because all these loans fund, and thus we were measuring speed of funding, that speed may have to do with other external forces that we are not aware of, that is not in the data, such as certain regions or funders being faster or slower, no matter who the borrower is or what the loan is for.</p>
+    <br /><br /><br />
+    <h3 class="section-heading mb-4">
+      <span class="section-heading-upper">Data Preparation and Rationale for Key Decisions</span>
+      <span class="section-heading-lower">Preparing the Data</span>
+    </h3>
+    <p>Binary vs Multiclass</p>
+
+    <br /><br /><br />
+    <h3 class="section-heading mb-4">
+      <span class="section-heading-upper">Data Preparation and Rationale for Key Decisions</span>
+      <span class="section-heading-lower">Machine Learning Model Summary Table</span>
+    </h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Model Tested</th>
+          <th scope="col">Description of results: binary</th>
+          <th scope="col">Description of results: multi-class</th>
+          <th scope="col">Efficacy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Sampling: Random Oversampling, SMOTE, Random Undersampling, Cluster Centroid, and Resampling using SMOTEEN</td>
+          <td>binary</td>
+          <td>multiclass</td>
+          <td>efficacy</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>PCA</td>
+          <td>binary</td>
+          <td>multiclass</td>
+          <td>we ran PCA on binary classification and multiple classification. We found that all dimension are fairly equally important, such that there was a linear relationship between the explainability and number of dimensions used. Thus PCA was not helpful to reduce dimentionality. This was the case with both classifications.</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Logistic regression</td>
+          <td>Solid balanced performance out of the gate at average of 69% precision, 69% recall, and f1 of 69%. We used random oversampled (ROS) data in the model, but it really didn't make a difference in the performance. This could be an issue because 69% of the data is in the 1 category naturally, so we used the oversampled data to be sure we re-distributed the data so the accuracy was more trustworthy than just the same chance of the data being where it predicts.</td>
+          <td>multiclass</td>
+          <td>What we are looking for in our logistic regression model is the ability for a borrower to predict the likelihood their loan will fund un under 12 days, which is represented by y = 1. Therefore, we want to capture the highest percentage of true positives in the cases when it categorizes the result as 1, ie precision = True positives/(All positives). Recall or sensitivity represents capturing everyone who is actually positive at the expense of forecasting too many positives. For our purposes, (1) We want to focus on the statistics around the 1 not the 0 category, while maintaining some balance between precision and recall as expressed by f1.
+
+            As you can see from the analysis image above, for logistic regression precision is 77%, recall is 73%, and f1 is 75%. For reasons stated in the previous paragraph, we want to favor precision. Average scores are the most balanced in this model at 69% precision, 69% recall, and 69% f1 which is showing a nice balance between precision and recall. Therefore, because we favor precision, THE LOGISTIC REGRESSION MODEL IS OUR BEST MODEL.</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Linear regression</td>
+          <td>binary</td>
+          <td>multiclass</td>
+          <td>Enourmous means squared error of -1.29e23 which is -349.59. We DROPPED this model from our final notebook as linear regression does not appear to lend itself to this data.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>Random Forest</td>
+          <td>Binary Classification: We used ROS inputs and then tuned on the following parameters: n-estimates (50, 100, 200), max depth (originally set at 5, removed it and added 5-6 percentage points to the balanced accuracy, precision, recall and f1 scores. This model started out less predictive than logistic, but once tuned, came out ahead, at 68.7% balanced accuracy (came in as high as 70.2 once with a different sample taken of the original dataset - because we only take 5% there is some variability), and 68% precision, 69% recall, and 68% f1.</td>
+          <td>Multiple classification: We used ROS inputs and then tuned on the following parameters: n-estimates (50, 100, 200), max depth (originally set at 5, removed it and added 5-6 percentage points to the balanced accuracy, precision, recall and f1 scores. Bucketing hurt the model performance. Our thesis is that by hand "distributing" the data in equal weeks, up to week 5, then the entire tail of the data in week 5, we made it more difficult to resample the data as it was bar-belled in two buckets, the first and the last. The result was model performance of 40-45%, even after tuning the model extensively as described in the first part of this paragraph.</td>
+          <td>What we are looking for in our random forest model is the ability for a borrower to predict the likelihood their loan will fund un under 12 days, which is represented by y = 1. Like in logistic regression, we want to capture the highest percentage of true positives in the cases when it categorizes the result as 1, ie precision = True positives/(All positives). Recall or sensitivity represents capturing everyone who is actually positive at the expense of forecasting too many positives. For our purposes, (1) We want to focus on the statistics around the 1 not the 0 category, while maintaining some balance between precision and recall as expressed by f1.
+
+            As you can see from the analysis image above, random forest precision is 73%, recall is 83%, and f1 is 78%. While recall and f1 are higher for Random Forest, we give up 4 points of precision which is what we are optimizing for, while still looking for balance in our overall f1. Average scores are slightly lower in random forest than in logistical at 68% precision, 69% recall, and 68% f1. If it was just on average scores, the models would effectively be tied (notwithstanding the additional work of tuning Random Forest whereas logistical regression performed well out of the box), but because our focus is on precision of predicting 1, while not losing too much balance through average f1, logistical regression is our best model.</td>
+        </tr>
+        <tr>
+          <th scope="row">6</th>
+          <td>Support Vector Machines</td>
+          <td>binary</td>
+          <td>multiclass</td>
+          <td>SVMs using SVC library. Both using the binary and multiple (bucketed) classification datasets, SVMs came in 62-63% accuracy for the binary classification and even less for multiple classification data and took 30 minutes to multiple hours to complete. We DROPPED this model from out final notebook.</td>
+        </tr>
+        <tr>
+          <th scope="row">7</th>
+          <td>Neural Nets</td>
+          <td>binary</td>
+          <td>multiclass</td>
+          <td>We did not run neural nets as (1) We were wanting to understand components that were important to the speed of getting a loan funded, so could not use multiple layers in a neural net and get this information. (2) If we used one layer in a neural net, this is very close to how a SVM acts, so we used the SVM instead.</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    
+
+    let's go!
+</body>
+
+
+
+<footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0 small">Copyright &copy; Your Website 2020</p>
+    </div>
+</footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+</html>

@@ -4,10 +4,10 @@
     <head>
 
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-      
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
         <title>About the Kiva Dataset</title>
       
         <!-- Bootstrap core CSS -->
@@ -20,26 +20,84 @@
         <!-- Custom styles for this template -->
         <link href="css/business-casual.min.css" rel="stylesheet">
       
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--  <style>
+          .chart {
+            max-height: calc(200px + 20px) !important;
+            overflow: hidden;
+          }
+          .jumbotron {
+          background-image: url("https://www.genglobal.org/sites/default/files/2019-11/kiva%20pic.png");
+          background-size: 100% 100%;
+          text: white;
+          text-align: center;
+          }
+          body {background-color: whitesmoke;}
+      
+          div.polaroid {
+            width: 284px;
+            padding: 10px 10px 20px 10px;
+            border: 1px solid #BFBFBF;
+            background-color: white;
+            box-shadow: 10px 10px 5px #aaaaaa;
+            }
+            div.rotate_right {
+              float: left;
+              -ms-transform: rotate(7deg); /* IE 9 */
+              -webkit-transform: rotate(7deg); /* Safari */
+              transform: rotate(7deg);
+            }
+      
+            div.rotate_left {
+              float: left;
+              -ms-transform: rotate(-8deg); /* IE 9 */
+              -webkit-transform: rotate(-8deg); /* Safari */
+              transform: rotate(-8deg);
+            }
+        </style>-->
       </head>
 
 <body>
-  <!-- Navigation bar --> 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+
+<!-- Navigation bar --> 
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #eb6841;">
+    <a class="navbar-brand" href="#">
+      <img class="d-inline-block align-top" src="img/pysparque.png" width="50" height="50" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful</a>
-        <a class="nav-item nav-link" href="dashboard.html">Explore the data</a>
-        <a class="nav-item nav-link" href="outliers.html">Explore outliers</a>
+        <a class="nav-item nav-link active" href="#">Home &nbsp;&nbsp;&nbsp;&nbsp;<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="about.html">About this project &nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a class="nav-item nav-link" href="dashboard.html">Explore the data&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a class="nav-item nav-link" href="outliers.html">Explore outliers&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Meet the team</a>
       </div>
     </div>
   </nav>
+  <!--Meet the Team model (part of nav bar)-->
+  <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h3 id="myModalLabel">PySpark Team Members</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              </div>
+              <div class="modal-body">
+                  <p>Don't you want to know all about the PySpark Team!</p>
+              </div>
+              <div class="modal-footer">
+                  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- End navigation bar --> 
 
 
+  <br /><br /><br /><br />
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
@@ -48,36 +106,41 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-4">
         <div class="well">
-          <h5>Country Names:</h5>
-          <!-- <select id="selDataset"></select> -->
+          <h5>Country Details:</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title">Country Info</h3>
+            <h3 class="panel-title">Country Demographics</h3>
           </div>
-          <div id="max_loan" class="panel-body"></div>
-        </div>
+          <div id="sample-metadata" class="panel-body" bg="light" shadow="p-3 mb-5 bg-white rounded"></div>
+        </div>    
       </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
+      <div class="col-md-4">
+        <div id="bar"><p class="bg-info"></p></div>
       </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
+      <div class="col-md-8">
+        <div id="bubble"></div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
+      <div class="col-md-6">
+        <div id="box"></div>
+        <div class="col-md-6">
+            <div id="box"></div>
+          </div>
+          <div class="col-md-6">
+            <div id="box"></div>
+          </div>
       </div>
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="first file.js"></script>
+  <script src="js/kivaplots.js"></script>
 
 
   <footer class="footer text-faded text-center py-5">

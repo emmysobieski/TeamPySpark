@@ -32,7 +32,7 @@
         'packages':['geochart'],
         // Note: you will need to get a mapsApiKey for your project.
         // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+        'mapsApiKey': 'AIzaSyBCuhfn48dXHdgt6BnOBYbPyyJG8skSe_Q'
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
 
@@ -145,7 +145,6 @@
           backgroundColor: '#ffffff', opacity:0.4,
           datalessRegionColor: '#f2b594',
           defaultColor: '#f5f5f5',
-          displayMode: 'text'
         };
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
@@ -156,34 +155,60 @@
   </head>
   <body>
 
-      <!-- Navigation bar --> 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful</a>
-        <a class="nav-item nav-link" href="dashboard.html">Explore the data</a>
-        <a class="nav-item nav-link" href="outliers.html">Explore outliers</a>
-      </div>
+<!-- Navigation bar --> 
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #eb6841;">
+  <a class="navbar-brand" href="#">
+    <img class="d-inline-block align-top" src="img/pysparque.png" width="50" height="50" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home &nbsp;&nbsp;&nbsp;&nbsp;<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="about.html">About this project &nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="dashboard.html">Explore the data&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="outliers.html">Explore outliers&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Meet the team</a>
     </div>
-  </nav>
+  </div>
+</nav>
+<!--Meet the Team model (part of nav bar)-->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="myModalLabel">PySpark Team Members</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Don't you want to know all about the PySpark Team!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End navigation bar --> 
     
     <section class="page-section about-heading">
       <div class="container">
-        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/about.jpg" alt="">
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/accent.png" alt="">
         
         <div class="about-heading-content">
           <div class="row">
             <div class="col-xl-9 col-lg-10 mx-auto">
               <div class="bg-faded rounded p-5">
-                <div id="regions_div" style="width: 600px; height: 333px; align-content: center"></div>
-                <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
-                <p class="mb-0">We guarantee that you will fall in <em>lust</em> with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.</p>
-              </div>
+                <div class="bg-faded rounded p-5">
+                  <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Interactive Data Map</span>
+                    <span class="section-heading-lower">Funding by Country</span>
+                  </h2>
+                 <div id="regions_div" style="max-height: 100%; max-width: 100%; align-content: center"></div>
+                  <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
+                  </div>
+               </div>
             </div>
           </div>
         </div>
