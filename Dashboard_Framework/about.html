@@ -20,61 +20,189 @@
   <!-- Custom styles for this template -->
   <link href="css/business-casual.min.css" rel="stylesheet">
 
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages':['geochart'],
+      // Note: you will need to get a mapsApiKey for your project.
+      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+      'mapsApiKey': 'API_key'
+    });
+    google.charts.setOnLoadCallback(drawRegionsMap);
+
+  
+  google.charts.load('current', {
+    'packages':['geochart'],
+    // Note: you will need to get a mapsApiKey for your project.
+    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+    'mapsApiKey': 'AIzaSyBCuhfn48dXHdgt6BnOBYbPyyJG8skSe_Q'
+  });
+  google.charts.setOnLoadCallback(drawRegionsMap);
+
+  function drawRegionsMap() {
+    var data = google.visualization.arrayToDataTable([
+      ['Country', 'Total Funds Loaned'],
+      ['Afghanistan',	1967950],
+      ['Albania', 6941575],
+      ['Armenia', 26904475],
+      ['Azerbaijan', 14784625],
+      ['Bangladesh', 155000],
+      ['Belize', 150675],
+      ['Benin', 3915825],
+      ['Bhutan', 20000],
+      ['Bolivia', 52939000],
+      ['Bosnia and Herzegovina', 477250],
+      ['Botswana', 8000],
+      ['Brazil', 3975075],
+      ['Bulgaria', 375300],
+      ['Burkina Faso', 7284900],
+      ['Burundi', 5233450],
+      ['Cambodia', 62385100],
+      ['Cameroon', 2779900],
+      ['Canada', 100000],
+      ['Chad', 20075],
+      ['Chile', 2595925],
+      ['China', 380525],
+      ['Colombia', 36966075],
+      ['Congo', 2274900],
+      ['Costa Rica', 7888350],
+      ['Cote D Ivoire', 345300],
+      ['Dominican Republic', 10508750],
+      ['Ecuador', 56030575],
+      ['Egypt', 3134750],
+      ['El Salvador', 54997975],
+      ['Fiji', 2023425],
+      ['Gaza', 5000],
+      ['Georgia', 12220475],
+      ['Ghana', 19717800],
+      ['Guam', 17300],
+      ['Guatemala', 27886125],
+      ['Haiti', 6569225],
+      ['Honduras', 17498175],
+      ['India', 13275450],
+      ['Indonesia', 10315475],
+      ['Iraq', 9166125],
+      ['Israel', 2298900],
+      ['Jordan', 15842575],
+      ['Kenya', 98906750],
+      ['Kosovo', 3962125],
+      ['Kyrgyzstan', 23123925],
+      ['Lao Peoples Democratic Republic', 1337325],
+      ['Lebanon', 40774875],
+      ['Lesotho', 931075],
+      ['Liberia', 6233025],
+      ['Madagascar', 3779200],
+      ['Malawi', 4434175],
+      ['Mali', 18259600],
+      ['Mauritania', 15000],
+      ['Mexico', 27975625],
+      ['Moldova', 3158025],
+      ['Mongolia', 15348375],
+      ['Mozambique', 5861675],
+      ['Myanmar (Burma)', 5525075],
+      ['Namibia', 177825],
+      ['Nepal', 1002600],
+      ['Nicaragua', 37534075],
+      ['Nigeria', 8957275],
+      ['Pakistan', 31486800],
+      ['Palestine', 31537150],
+      ['Panama', 612525],
+      ['Papua New Guinea', 222900],
+      ['Paraguay', 78657725],
+      ['Peru', 101433825],
+      ['Philippines', 134038975],
+      ['Puerto Rico', 1275400],
+      ['Rwanda', 45293950],
+      ['Saint Vincent and the Grenadines', 49225],
+      ['Samoa', 17388300],
+      ['Senegal', 27587800],
+      ['Sierra Leone', 14132175],
+      ['Solomon Islands', 2178100],
+      ['Somalia', 308725],
+      ['South Africa', 1011525],
+      ['South Sudan', 2418300],
+      ['Sri Lanka', 74800],
+      ['Suriname', 748925],
+      ['Tajikistan', 52148950],
+      ['Tanzania', 23463025],
+      ['Thailand', 1473400],
+      ['The Democratic Republic of the Congo', 26996350],
+      ['Timor-Leste', 7038225],
+      ['Togo', 12082925],
+      ['Tonga', 2021950],
+      ['Turkey', 1214425],
+      ['Uganda', 54085775],
+      ['Ukraine', 7344775],
+      ['United States', 65381025],
+      ['Uruguay', 8000],
+      ['Vanuatu', 9250],
+      ['Vietnam', 35596575],
+      ['Virgin Islands', 10000],
+      ['Yemen', 3463825],
+      ['Zambia', 2606600],
+      ['Zimbabwe', 9290400]
+    ]);
+
+    var options = {
+    colorAxis: {colors: ['#444373', '#de713d', '#D4E6F1']},
+      backgroundColor: '#ffffff', opacity:0.4,
+      datalessRegionColor: '#f2b594',
+      defaultColor: '#f5f5f5',
+    };
+
+    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+    chart.draw(data, options);
+  }
+</script>
 </head>
 
 
 <body>
 
-   <!-- Navigation bar --> 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful</a>
-        <a class="nav-item nav-link" href="dashboard.html">Explore the data</a>
-        <a class="nav-item nav-link" href="outliers.html">Explore outliers</a>
-      </div>
+<!-- Navigation bar --> 
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #eb6841;">
+  <a class="navbar-brand" href="#">
+    <img class="d-inline-block align-top" src="img/pysparque.png" width="50" height="50" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home &nbsp;&nbsp;&nbsp;&nbsp;<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="about.html">About this project &nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="dashboard.html">Explore the data&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="outliers.html">Explore outliers&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Meet the team</a>
     </div>
-  </nav>
-
-
+  </div>
+</nav>
+<!--Meet the Team model (part of nav bar)-->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="myModalLabel">PySpark Team Members</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Don't you want to know all about the PySpark Team!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End navigation bar --> 
 
   <h1 class="site-heading text-center text-white d-none d-lg-block">
     <span class="site-heading-upper text-primary mb-3">Learn more about the loans</span>
     <span class="site-heading-lower">Kiva Microlending</span>
   </h1>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Exploring</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="about.html">About</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="products.html">Products</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="store.html">Store</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
   <section class="page-section about-heading">
     <div class="container">
@@ -87,11 +215,143 @@
                 <span class="section-heading-upper">Powerful Loans, Extraordinary Impact</span>
                 <span class="section-heading-lower">Data Analysis for Kiva</span>
               </h2>
-              <p>Microloans have a profound impact on the local and global economy, particularly in how they support women in situational improvement.
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-5">
+                   <p>Box 1: The Kiva dataset offers tremendous insight into the world of microloans.  Serving 99 countries, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <br /><br /><br /><br /><br /><br /></p>
+                  </div>
+                 
+                    <div class="col-md-7">
+                     <p><img src="img/description.png" class="figure-img img-fluid rounded" alt="Word Cloud of Description Column"> </p>
+                     <figcaption class="figure-caption text-right">The word cloud above was generated using the text in the "description" field of the Loans Database.  It emphasizes key points from the loan recipient dataset, and reinforces who the loans impact.</figcaption>
+                    </div>
+
+                    <h2 class="section-heading mb-4">
+                      <span class="section-heading-upper">How do I Improve My Loan?</span>
+                      <span class="section-heading-lower">Key Contributors to Loan Success</span>
+                    </h2>
+                    <div class="row">
+                      <div class="col-md-3">
+                       <p><strong>Gender:</strong><br /> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                      </div>
+                      <div class="col-md-3">
+                        <p><strong>Location:</strong><br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                       </div>   
+                       <div class="col-md-3">
+                        <p><strong>Tags:</strong><br /> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                       </div>   
+                       <div class="col-md-3">
+                        <p><strong>Factor 4:</strong><br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                       </div>
+                       <div class="row">
+                        <div class="col-md-4">
+                          <div class="ui">
+                            <div class="ui_box_inner"><br /><br /><br />
+                              <h2>
+                                Say what?!
+                              </h2>
+                              <p> tell me more abou tall this awesome content... seriously!</p>
+                              </div><br /><br /><br />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="ui">
+                              <div class="ui_box_inner"><br /><br /><br />
+                                <h2>
+                                  Say what?!
+                                </h2>
+                                <p> tell me more abou tall this awesome content... seriously!</p>
+                                </div><br /><br /><br />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="ui">
+                                <div class="ui_box_inner"><br /><br /><br />
+                                  <h2>
+                                    Say what?!
+                                  </h2>
+                                  <p> tell me more abou tall this awesome content... seriously!</p>
+                                  </div><br /><br /><br />
+                                </div>
+                              </div>
+
+        <!--adding in some Glyphicons!-->
+        <div class="row">
+          <div class="col-md-2">
+            <button type="button" class="btn btn-default btn-lg">
+              <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+              <span class="glyphicon-class">Great things.</span> 
+            </button>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-default btn-lg">
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+            </button>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-default btn-lg">
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+            </button>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-default btn-lg">
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+            </button>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-default btn-lg">
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+            </button>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-default btn-lg">
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+            </button>
+          </div>
+        </div>    
+
+        <!--end Glyphicons-->
+
+              <div class="row">
+              <div class="col-md-5">
+              <p>Box 3: Microloans have a profound impact on the local and global economy, particularly in how they support women in situational improvement.
                 Kiva is a crowdsourcing program that empowers anyone, however a significant portion of funding goes to supporting women. 
                 Educating and supporting women improves countries, environments, and families globally.
               </p>
                </div>
+               <div class="col-md-7">
+                <p>Box 4: Microloans have a profound impact on the local and global economy, particularly in how they support women in situational improvement.
+                  Kiva is a crowdsourcing program that empowers anyone, however a significant portion of funding goes to supporting women. 
+                  Educating and supporting women improves countries, environments, and families globally.
+                </p>
+                 </div>
+<!--Interactive google map-->
+                 <!--<div class="about-heading-content">-->
+                  <div class="row">
+                    <div class="col-xl-11 col-lg-10 mx-auto">
+                      <!--<div class="bg-faded rounded p-5">
+                        <div class="bg-faded rounded p-5">-->
+                          <h2 class="section-heading mb-4">
+                            <span class="section-heading-upper">Interactive Data Map</span>
+                            <span class="section-heading-lower">Funding by Country</span>
+                          </h2>
+                         <div id="regions_div" style="max-height: 100%; max-width: 100%; align-content: center"></div>
+                          <p><br />Kiva funds loans internationally, some areas of the world receive more funding than others.  The map itself led to these insights about the data:
+                          <ul>
+                            <li>Three countries received approximately $100 million dollars.  Far more than any other country.  These three countries include: Peru, Kenya and the Phillipines.                             </li>
+                            <li>There was no funding at all on the Australian continent and very little in the Eurasian area.</li>
+                            <li>The United States received quite a bit of funding. Microloans often carry a connotation of serving extremely impoverished communities, the finding that the US received so much funding was surprising. </li>
+                          </ul>
+                          
+                          </p>
+                          </div>
+                       <!--</div>
+                    </div>-->
+                  </div>
+                </div>
+<!-- End interactive google map -->
+
+              </div>
           </div>
         </div>
       </div>
@@ -108,6 +368,12 @@
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="js/kivaplots.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="js/kivaplots.js"></script>
+
+ 
 
 </body>
 
