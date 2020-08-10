@@ -50,7 +50,7 @@ Import dependencies needed for data preprocessing, then:
 
 7. Sampled data at 5% of the total because original file is 1.8 million rows even after all the eliminations.
 
-8. Removed null and NaaN values by row.
+8. Removed null and NaN values by row.
 
 9. Export the cleaned dataframe into a csv for easy importing into the machine learning notebook.  Datapreprocessing and machine learning notebooks are separate for easier recomputation.
 
