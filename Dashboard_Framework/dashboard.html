@@ -21,7 +21,7 @@
         <link href="css/business-casual.min.css" rel="stylesheet">
       
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!--  <style>
+        <style>
           .chart {
             max-height: calc(200px + 20px) !important;
             overflow: hidden;
@@ -54,48 +54,25 @@
               -webkit-transform: rotate(-8deg); /* Safari */
               transform: rotate(-8deg);
             }
-        </style>-->
+        </style>
       </head>
 
 <body>
-
-<!-- Navigation bar --> 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #eb6841;">
-    <a class="navbar-brand" href="#">
-      <img class="d-inline-block align-top" src="img/pysparque.png" width="50" height="50" alt=""></a>
+  <!-- Navigation bar --> 
+  <nav class="navbar navbar-expand-lg navbar-inverse bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home &nbsp;&nbsp;&nbsp;&nbsp;<span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="about.html">About this project &nbsp;&nbsp;&nbsp;&nbsp;</a>
-        <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        <a class="nav-item nav-link" href="dashboard.html">Explore the data&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        <a class="nav-item nav-link" href="outliers.html">Explore outliers&nbsp;&nbsp;&nbsp;&nbsp;</a>
-        <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Meet the team</a>
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful</a>
+        <a class="nav-item nav-link" href="dashboard.html">Explore the data</a>
+        <a class="nav-item nav-link" href="outliers.html">Explore outliers</a>
       </div>
     </div>
   </nav>
-  <!--Meet the Team model (part of nav bar)-->
-  <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h3 id="myModalLabel">PySpark Team Members</h3>
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              </div>
-              <div class="modal-body">
-                  <p>Don't you want to know all about the PySpark Team!</p>
-              </div>
-              <div class="modal-footer">
-                  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- End navigation bar --> 
-
 
   <br /><br /><br /><br />
   <div class="container">
@@ -106,7 +83,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-6">
         <div class="well">
           <h5>Country Details:</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
@@ -118,9 +95,11 @@
           <div id="sample-metadata" class="panel-body" bg="light" shadow="p-3 mb-5 bg-white rounded"></div>
         </div>    
       </div>
-
-      <div class="col-md-8">
-        <div id="bubble2"></div>
+      <div class="col-md-6">
+        <div id="bar"><p class="bg-info"></p></div>
+      </div>
+      <div class="col-md-6">
+        <div id="bubble"></div>
       </div>
     </div>
     <div class="row">
