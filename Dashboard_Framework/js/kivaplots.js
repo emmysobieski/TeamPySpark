@@ -21,7 +21,9 @@ function init() {
     console.log(newSample);
     buildMetadata(newSample);
     buildCharts2();
-    buildSunburst();
+    buildBar();
+    buildPie();
+    buildBurst();
   }
 
   function pageLoad() {
@@ -29,7 +31,9 @@ function init() {
     d3.select(window).on("load", data.sample);
     buildMetadata(0);
     buildCharts2();
-    buildSunburst();
+    buildBar();
+    buildPie();
+    buildBurst();
   });
 }
 window.onload = pageLoad();
@@ -90,51 +94,87 @@ window.onload = pageLoad();
         });
     };
 
-    function buildSunburst() {
-      d3.json("activity_top_10.json").then((data) => {
+    function buildBar() {
+      //d3.json("activity_top_10.json").then((data) => {
               
   
-          var activity = data.top_10_activities;
-          var amount = data.count_of_activities_by_country;
+          //var activity = data.top_10_activities;
+          //var amount = data.count_of_activities_by_country;
           
-          console.log(activity);
-          console.log(amount);
+          //console.log(activity);
+          //console.log(amount);
   
           var data3 = [
           {
           type: 'bar',
-          x: activity,
-          y: amount,
+          x: ['Philippines', 'Kenya', 'Peru', 'Cambodia', 'El Salvador', 'Uganda', 'Tajikistan', 'Pakistan', 'Ecuador', 'Nicaragua'], 
+          y: [391168, 202372, 97552, 95994, 74859, 66493, 58507, 55033, 49242],
+          marker: {
+            color: 'rgb(142,124,195)'
+          }
           }
         ];
+        var layout3 = {
+          title: 'Top 10 Countries with the Highest Funding Count',
+          height: 700,
+          width: 700,
+          //margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        };
+
+        Plotly.newPlot('bar', data3, layout3)
+      };
+    
 
 
-        function buildBar() {
-          d3.json("activity_top_10.json").then((data) => {
+    function buildPie() {
+      //d3.json("activity_top_10.json").then((data) => {
                   
       
-              var activity = data.top_10_activities;
-              var amount = data.count_of_activities_by_country;
+        //var activity = data.top_10_activities;
+        //var amount = data.count_of_activities_by_country;
               
-              console.log(activity);
-              console.log(amount);
+        //console.log(activity);
+        //console.log(amount);
+        
+        var data4 = [{
+          values: [1249772, 407567, 93446, 46079, 9969, 1965, 1003, 343],
+          labels: ['English', 'Spanish', 'French', 'Russian', 'Portuguese', 'Vietnamese', 'Indonesian', 'Arabic'],
+          //colorscale: 'YlGnBu',
+          type: 'pie',
+          marker: {
+            colors: ["rgba(255, 0, 0, 0.6)", "rgba(255, 165, 0, 0.6)", "rgba(255, 255, 0, 0.6)", "rgba(144, 238, 144, 0.6)", "rgba(154, 205, 50, 0.6)", "white"]
+        }}];
+        
+        var layout4 = {
+          title: 'Common Languages used by Borrowers based on Country',
+          height: 500,
+          width: 700,
+          //margin: {"t": 0, "b": 0, "l": 0, "r": 0},
+        };
+        
+        Plotly.newPlot('pie', data4, layout4);
+      };
+
+      function buildBurst() {
       
-              var data4 = [
-              {
-              type: 'bar',
-              x: activity,
-              y: amount,
-              }
-            ];
-          
-          //var layout3 = {
-            //margin: {"l": 0, "r": 0, "b": 0, "t": 0},
-            //width: 500,
-            //height: 500
-          //};
-          
-          Plotly.newPlot('bar2', data4)
-          
-          //myPlot = document.getElementById("sunburst");
-          });
+        var data5 = [{
+          type: "sunburst",
+          labels: ["Farming", "General Store", "Personal Housing Expenses", "Retail", "Food Production/Sales", "Clothing Sales", "Agriculture", "Pigs", "Grocery Store"],
+          parents: ["", "Farming", "Farming", "Personal Housing Expenses", "Personal Housing Expenses", "Farming", "Farming", "Agriculture", "Farming" ],
+          values:  [192961, 157244, 92166, 84627, 83775, 72002, 69665, 63550, 52900],
+          outsidetextfont: {size: 20, color: "#377eb8"},
+          leaf: {opacity: 0.4},
+          marker: {line: {width: 2}},
+        }];
+        
+        var layout5 = {
+          title: 'Popular Activities used by Borrowers Globally',
+          margin: {l: 0, r: 0, b: 0, t: 0},
+          width: 700,
+          height: 500,
+          sunburstcolorway:["#636efa","#ef553b","#00cc96"]
+        };
+        
+        
+        Plotly.newPlot('sunburst', data5, layout5);
       };
