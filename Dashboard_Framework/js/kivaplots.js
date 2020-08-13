@@ -20,16 +20,16 @@ function init() {
   function optionChanged(newSample) {
     console.log(newSample);
     buildMetadata(newSample);
-    //buildCharts(newSample);
     buildCharts2();
+    buildSunburst();
   }
 
   function pageLoad() {
     d3.json("formatted_dropdown_dashboard.json").then((data) => {
     d3.select(window).on("load", data.sample);
     buildMetadata(0);
-    //buildCharts("Afghanistan");
     buildCharts2();
+    buildSunburst();
   });
 }
 window.onload = pageLoad();
@@ -56,15 +56,15 @@ window.onload = pageLoad();
     
             var total_loan_number = data.total_loans_per_country;
             var time_to_fund = data.avg_funding_time;
-            var population = data.population_in_thousands_2017
-            var country = data.COUNTRY_NAME
+            var population = data.population_in_thousands_2017;
+            var country = data.COUNTRY_NAME;
 
             console.log(total_loan_number);
             console.log(time_to_fund);     
 
             var trace1 = {
-                x: total_loan_number,
-                y: time_to_fund,
+                x: time_to_fund,
+                y: total_loan_number,
                 z: population,
                 text: country,
                 mode: "markers",
@@ -79,8 +79,8 @@ window.onload = pageLoad();
             
             var layout = {
                 title: 'Kiva Loan Time vs. Number of Loans by Country',
-                xaxis: {title: "Number of Loans Total for Country"},
-                yaxis: {title: "Number of Days until Funding Success!"},
+                xaxis: {title: "Average Number of Days until Funding Success"},
+                yaxis: {title: "Total Loans for Country (in USD)"},
                 //showlegend: true,
                 height: 600,
                 width: 600
@@ -90,3 +90,51 @@ window.onload = pageLoad();
         });
     };
 
+    function buildSunburst() {
+      d3.json("activity_top_10.json").then((data) => {
+              
+  
+          var activity = data.top_10_activities;
+          var amount = data.count_of_activities_by_country;
+          
+          console.log(activity);
+          console.log(amount);
+  
+          var data3 = [
+          {
+          type: 'bar',
+          x: activity,
+          y: amount,
+          }
+        ];
+
+
+        function buildBar() {
+          d3.json("activity_top_10.json").then((data) => {
+                  
+      
+              var activity = data.top_10_activities;
+              var amount = data.count_of_activities_by_country;
+              
+              console.log(activity);
+              console.log(amount);
+      
+              var data4 = [
+              {
+              type: 'bar',
+              x: activity,
+              y: amount,
+              }
+            ];
+          
+          //var layout3 = {
+            //margin: {"l": 0, "r": 0, "b": 0, "t": 0},
+            //width: 500,
+            //height: 500
+          //};
+          
+          Plotly.newPlot('bar2', data4)
+          
+          //myPlot = document.getElementById("sunburst");
+          });
+      };
