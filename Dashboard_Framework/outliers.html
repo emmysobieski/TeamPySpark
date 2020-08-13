@@ -1,3 +1,4 @@
+<html>
 <head>
 
     <meta charset="utf-8">
@@ -6,38 +7,221 @@
     <meta name="author" content="">
   
     <title>Understanding Microlending through Analyzing Kiva Data</title>
-  
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  
+    <style>
+        #map {
+          height: 600px;
+          width: 700px;
+        }
+      </style>
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
   
     <!-- Custom styles for this template -->
     <link href="css/business-casual.min.css" rel="stylesheet">
-  
+
+    <!--Google Map with six "travel" points for exploring the data.-->
+    <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
+   
+    <!--<script 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVqJwVWZw__ePPTHCH-XGAvmqd4vJxzi0&callback=initMap&libraries=&v=weekly"
+      defer ></script>
+    <script src='js/map.js'></script>-->
+      <!--//});
+      //google.charts.load(initMap);
+      //google.charts.setOnLoadCallback(initMap);-->
+   <script>
+      "use strict";
+    
+      function initMap() {
+         var data = [
+             [-0.3, 36.066667, "Nakuru", "Jane", "Tailoring	","Nakuru", "Kenya", "$225", "Jane is a married woman. She has two children..."],
+             [20.47, 84.23, "Phulbani", "Arati", "Personal Housing","Phulbani","India", "$250", "Arati is a 29-year-old woman from a village in..."],
+             [-6.65, 106.21667, "Lebak", "Tini", "Personal Housing","Lebak","Indonesia", "$525", "Good day, lenders! Meet one of KSPPS BMI’s cli..."],
+             [43.075556, -70.760556, "Portsmouth", "Jessica", "Health","Portsmouth","United States","$10.000", "Over twenty years ago something happened that..."],
+             [-20, -64.416667, "Chuquisaca", "Claudia", "Higher education costs","Chuquisaca","Bolivia","$750", "Claudia has always dreamed of becoming a profe..."],
+             [47.498889, 34.655833, "Energodar", "Anna", "Farm Supplies","Energodar","Ukraine", "$2.525", "Anna is married with a 7-year-old daughter. Sh...	"]
+         ]
+        
+         console.log(data[0])
+          // The location of Uluru
+          //var uluru = {lat: -25.344, lng: 131.036};
+          // The map, centered at Uluru
+          var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 2,
+            center: {lat:41.0082, lng:28.9784}
+        });
+
+        data.forEach(([x, y, location, loan_name, activity_name, town_name, country_name, loan_amount, loan_description]) => {
+        
+            console.log(x)
+            console.log(country_name)
+
+            const contentString =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Loan Informations</h1>' +
+            '<div id="bodyContent">' +
+            "<p>LOAN NAME: "+loan_name+"</p>" +
+            "<p>ACTIVITY NAME: "+activity_name+"</p>" +
+            "<p>TOWN NAME: "+town_name+"</p>" +
+            "<p>COUNTRY NAME: "+country_name+"</p>" +
+            "<p>LOAN AMOUNT: "+loan_amount+"</p>" +
+            "<p>DESCRIPTION: "+loan_description+"</p>" +
+
+            "</div>" +
+            "</div>";
+            
+            const infowindow = new google.maps.InfoWindow({
+            content: contentString
+            });
+
+            const marker = new google.maps.Marker({
+                position: {lat:x, lng:y},
+                map: map,
+                title:location
+            });
+            
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+        //
+
+        //map.draw(data);
+        //initMap();
+
+        });
+}
+
+    </script>
+    <script 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVqJwVWZw__ePPTHCH-XGAvmqd4vJxzi0&callback=initMap&libraries=&v=weekly"
+    defer >
+    </script>
   </head>
 <body>
-  <!-- Navigation bar --> 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <!--<div id="map"></div>-->
+<!-- Navigation bar --> 
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #eb6841;">
+    <a class="navbar-brand" href="#">
+      <img class="d-inline-block align-top" src="img/pysparque.png" width="50" height="50" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful</a>
-        <a class="nav-item nav-link" href="dashboard.html">Explore the data</a>
-        <a class="nav-item nav-link" href="outliers.html">Explore outliers</a>
+        <a class="nav-item nav-link active" href="index.html">Home &nbsp;&nbsp;&nbsp;&nbsp;<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="about.html">About this project &nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a class="nav-item nav-link" href="machinelearning.html">Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a class="nav-item nav-link" href="dashboard.html">Explore the data&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a class="nav-item nav-link" href="outliers.html">Stories and outliers&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Meet the team</a>
       </div>
     </div>
   </nav>
+  <!--Meet the Team model (part of nav bar)-->
+  <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h3 id="myModalLabel">PySpark Team Members</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              </div>
+              <div class="modal-body">
+                  <p>Meet the PySpark Team!</p>
+                  <p><img src="img/Emmy.jpg" class="figure-img img-fluid rounded" alt=""><strong>Emmy Sobieski</strong> has 25 year's experience as a technology analyst and recently decided to learn how to code, taking UC Berkeley Extension's Data Analytics Bootcamp.  Emmy is an advisor to Leaf Global Fintech which helps refugees have more financial resilience.  Emmy is also a member of Declare and Athena Alliance both of which support advancement women in the workplace and the board.  Emmy is also on the board of Community Resource Center which brings resilience and dignity to homeless, food insecure and domestic violence victims in San Diego.</p>
+                  <p><img src="img/indir.png" class="figure-img img-fluid rounded" alt=""><strong>Omer Yildirim</strong> is a passionate and hardworking Jr. Data Analyst, who has a start-up about cryptocurrency exchange.</p>
+                  <p><img src="img/sheri.jpg" class="figure-img img-fluid rounded" alt=""><strong>Sheri Potter Karasick</strong> is a non-profit executive leader with ten+ years experience in strategic leadership, board development, fundraising and cultivating new fiscal policies, market research, social impact strategy, technology use and implementation, communications, membership, strategic planning, component/chapter management and business development.</p>
+                  <p><img src="img/Sravani.jpg" class="figure-img img-fluid rounded" alt=""><strong>Sravani Mylavarapu </strong>has a strong science and research background and loves to put together the technical side of data analytics together with the conceptual biotechnology and scientific side. She enjoys performing back-end data manipulation to format and make the data more presentable.</p>
+                 
+                </div>
+              <div class="modal-footer">
+                  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- End navigation bar --> 
+  
+  <!--Page Title-->
+  <h1 class="site-heading text-center text-white d-none d-lg-block">
+     <!--   <span class="site-heading-upper text-primary mb-3">Data Analysis to Inform</span>-->
+      <span class="site-heading-lower">Stories and Outliers</span>
+  </h1>
+        <section class="page-section about-heading">
+            <div class="container">
+              <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/Accent.png" alt="">
+              <div class="about-heading-content">
+                <div class="row">
+                  <div class="col-xl-9 col-lg-10 mx-auto">
+                    <div class="bg-faded rounded p-5">
+                      <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">Powerful Loans, Extraordinary Impact</span>
+                        <span class="section-heading-lower">The Stories and the Outliers</span>
+                      </h2>
+                
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-12">
+                           <p> The interactive map image to the right shares six stories of individuals who have received loans from Kiva.<br /></p>
+                          </div>
+                        </div>
+                      </div>
+                          <div class="container">
+                            <div class="row">
+                          <div class="col-lg-12">
+                          <div id="map"></div><br /><br />
+                          </div>
+                            </div>
+                          </div>
 
-    let's go!
-</body>
 
+            <h2 class="section-heading mb-4">
+            <!--<span class="section-heading-upper">Powerful Loans, Extraordinary Impact</span>-->
+            <span class="section-heading-lower">Data Outliers</span>
+            </h2>
+            <div class="row">
+                <div class="col-lg-12">
+                <h3>Kenya</h3>
+                <p>Microlending has been a game changing way to address international poverty, social equity, and lack of educational parity. Kiva, started in 2005 by a young couple, launched a new strategy to effect social impact through microlending: focus on the progress of the people rather than the situational poverty. This landmark mindshift catalyzed a social movement where all people, everywhere are empowered to give opportunities to the world's most oppressed individuals at an unimaginable scale -- providing loans of more than $1 Billion dollars to date in 99 countries. </p>
+                </div></div>
+                <div class="row">
+                    <div class="col-lg-12">
+                    <p><img src="img/Kenya_Loan_Use.png" class="figure-img img-fluid rounded" alt="Word Cloud of Description Column"> 
+                    <figcaption class="figure-caption text-right">The word cloud above was generated using the text in the "description" field of the Loans Database.  It emphasizes key points from the loan recipient dataset, and reinforces who the loans impact.</figcaption></p>
+                    </div>
+                <div class="row">
+                <div class="col-lg-12">
+                <h3>The Phillipines</h3>
+                <p>Microlending has been a game changing way to address international poverty, social equity, and lack of educational parity. Kiva, started in 2005 by a young couple, launched a new strategy to effect social impact through microlending: focus on the progress of the people rather than the situational poverty. This landmark mindshift catalyzed a social movement where all people, everywhere are empowered to give opportunities to the world's most oppressed individuals at an unimaginable scale -- providing loans of more than $1 Billion dollars to date in 99 countries. </p>
+                </div></div>
+                    <div class="col-lg-12">
+                        <div class="row"> 
+                    <p><img src="img/Philippines_Loan_Use.png" class="figure-img img-fluid rounded" alt="Word Cloud of Description Column"> </p>
+                    <figcaption class="figure-caption text-right">The word cloud above was generated using the text in the "description" field of the Loans Database.  It emphasizes key points from the loan recipient dataset, and reinforces who the loans impact.</figcaption>
+                </div></div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>Peru</h3>
+                    <p>Microlending has been a game changing way to address international poverty, social equity, and lack of educational parity. Kiva, started in 2005 by a young couple, launched a new strategy to effect social impact through microlending: focus on the progress of the people rather than the situational poverty. This landmark mindshift catalyzed a social movement where all people, everywhere are empowered to give opportunities to the world's most oppressed individuals at an unimaginable scale -- providing loans of more than $1 Billion dollars to date in 99 countries. </p>
+                </div></div>
+                    <div class="col-lg-12">
+                        <p><img src="img/Peru_Loan_Use.png" class="figure-img img-fluid rounded" alt="Word Cloud of Description Column"> </p>
+                        <figcaption class="figure-caption text-right">The word cloud above was generated using the text in the "description" field of the Loans Database.  It emphasizes key points from the loan recipient dataset, and reinforces who the loans impact.</figcaption>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+</div>
+
+    </body>
 
 
   <footer class="footer text-faded text-center py-5">
@@ -49,7 +233,5 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
 
 </html>
