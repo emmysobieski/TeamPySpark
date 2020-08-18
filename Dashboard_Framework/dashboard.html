@@ -3,13 +3,13 @@
 
     <head>
 
-        <meta charset="utf-8">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        
-        <title>About the Kiva Dataset</title>
-      
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+    
+      <title>Understanding Microlending through Analyzing Kiva Data</title>
+    
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       
@@ -22,98 +22,229 @@
       
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <style>
-          .chart {
-            max-height: calc(200px + 20px) !important;
-            overflow: hidden;
+          .navbar-nav {
+          background-color:#eb6841;
+          font-family:Lora
+          }
+          @media (min-width:992px){
+          .navbar-expand-lg {
+            flex-flow: row nowrap;
+          }}
+          .navbar {
+            position: relative;
+            display: flex;
+            padding: .5rem 1rem;
+            height: 75px;
+            font-size: 17px;
+          }
+          .navbar-brand {
+            display: inline-block;
+            position: relative;
+            top: -15px;
+            left: -8px;
+          }
+          .btn-primary {
+            background-color: #eb6841;
+            border-color: #eb6841;
+            color: #ffffff
+          }
+          .btn {
+            box-shadow: 0 3px 3px 0 rgba(33,37,41,.1);
+            font-weight: 400;
+            border: 1 px solid transparent;
+            font-size: 17px;
           }
           .jumbotron {
-          background-image: url("https://www.genglobal.org/sites/default/files/2019-11/kiva%20pic.png");
+          background-image: url("");
           background-size: 100% 100%;
-          text: white;
           text-align: center;
           }
-          body {background-color: whitesmoke;}
-      
-          div.polaroid {
-            width: 284px;
-            padding: 10px 10px 20px 10px;
-            border: 1px solid #BFBFBF;
-            background-color: white;
-            box-shadow: 10px 10px 5px #aaaaaa;
-            }
-            div.rotate_right {
-              float: left;
-              -ms-transform: rotate(7deg); /* IE 9 */
-              -webkit-transform: rotate(7deg); /* Safari */
-              transform: rotate(7deg);
-            }
-      
-            div.rotate_left {
-              float: left;
-              -ms-transform: rotate(-8deg); /* IE 9 */
-              -webkit-transform: rotate(-8deg); /* Safari */
-              transform: rotate(-8deg);
-            }
+          body {background-color: whitesmoke;
+          }
+
         </style>
       </head>
 
 <body>
-  <!-- Navigation bar --> 
-  <nav class="navbar navbar-expand-lg navbar-inverse bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" href="mapinteract.html">What Makes a Lender Successful</a>
-        <a class="nav-item nav-link" href="dashboard.html">Explore the data</a>
-        <a class="nav-item nav-link" href="outliers.html">Explore outliers</a>
-      </div>
-    </div>
-  </nav>
+<!-- Navigation bar --> 
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #eb6841;">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img class="d-inline-block align-top" src="img/pysparque.png" width="50" height="50" alt=""></a>
+  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <br /><br /><br /><br />
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="index.html">Home &nbsp;&nbsp;&nbsp;&nbsp;<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="about.html">About this project &nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="nav-item nav-link" href="machinelearning.html">Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="nav-item nav-link" href="dashboard.html">Explore the data&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a class="nav-item nav-link" href="outliers.html">Stories and outliers&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Meet the team</a>
+          </div>
+        </div>
+  </div>
+</nav>
+<!--Meet the Team model (part of nav bar)-->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="myModalLabel">PySpark Team Members</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Meet the PySpark Team!</p>
+                <p><img src="img/Emmy.jpg" class="figure-img img-fluid rounded" alt=""><strong>Emmy Sobieski</strong> has 25 year's experience as a technology analyst and recently decided to learn how to code, taking UC Berkeley Extension's Data Analytics Bootcamp.  Emmy is an advisor to Leaf Global Fintech which helps refugees have more financial resilience.  Emmy is also a member of Declare and Athena Alliance both of which support advancement women in the workplace and the board.  Emmy is also on the board of Community Resource Center which brings resilience and dignity to homeless, food insecure and domestic violence victims in San Diego.</p>
+                <p><img src="img/indir.png" class="figure-img img-fluid rounded" alt=""><strong>Omer Yildirim</strong> is a passionate and hardworking Jr. Data Analyst, who has a start-up about cryptocurrency exchange.</p>
+                <p><img src="img/sheri.jpg" class="figure-img img-fluid rounded" alt=""><strong>Sheri Potter Karasick</strong> is a non-profit executive leader with ten+ years experience in strategic leadership, board development, fundraising and cultivating new fiscal policies, market research, social impact strategy, technology use and implementation, communications, membership, strategic planning, component/chapter management and business development.</p>
+                <p><img src="img/Sravani.jpg" class="figure-img img-fluid rounded" alt=""><strong>Sravani Mylavarapu </strong>has a strong science and research background and loves to put together the technical side of data analytics together with the conceptual biotechnology and scientific side. She enjoys performing back-end data manipulation to format and make the data more presentable.</p>
+               
+              </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End navigation bar --> 
+
+<!--Page Title-->
+<h1 class="site-heading text-center text-white d-none d-lg-block">
+   <!--   <span class="site-heading-upper text-primary mb-3">Data Analysis to Inform</span>-->
+    <span class="site-heading-lower">Data Dashboard</span>
+</h1>
+
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
         <h1>Micro Loans Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset</p>
-      </div>
+         <p>Use the interactive charts below to explore the dataset</p>
+     </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="well">
-          <h5>Country Details:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
-        <div class="panel panel-primary">
+<!-- Row 1 of Dashboard-->
+    <div class="container">
+      <div class="row">
+        
+          <div class="well">
+            <h4>About this dashboard</h4>
+            <p>hasfohaofbewotb</p>
+          <h4>Select a Country:</h4>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select><br /><br />
+          </div>
+          
+          <div>&nbsp;&nbsp;&nbsp;</div>
+        
+          <div class="panel panel-primary">
           <div class="panel-heading">
-            <h3 class="panel-title">Country Demographics</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body" bg="light" shadow="p-3 mb-5 bg-white rounded"></div>
-        </div>    
-      </div>
-      <div class="col-md-6">
-        <div id="bar"><p class="bg-info"></p></div>
-      </div>
-      <div class="col-md-6">
-        <div id="bubble"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div id="pie"></div>
-        <div class="col-md-6">
-            <div id="sunburst"></div>
-          </div>
-          <div class="col-md-6">
-            <div id="box"></div>
-          </div>
+            <h3 class="panel-title">Kiva Specific <br /> Country Details</h3></div>
+             <div id="sample-metadata" class="panel-body" bg="light" shadow="p-3 mb-5 bg-white rounded"></div>
+          </div>  
+    
+          <div>&nbsp;</div>
+      
+          <div class="col-sm-7">
+          <div class="well">
+           <h3>Examining Funding by Country</h3>
+            <div id="bubble"></div>
+            </div></div>
+
       </div>
     </div>
-  </div>
+
+<!-- Row 2 of Dashboard-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="well">
+        <h3>Descriptive Summary of Loans</h3>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Funded Amount</th>
+                  <th scope="col">Loan Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Count of Values</th>
+                  <td>1,900,375</td>
+                  <td>1,900,375</td>
+                </tr>
+                <tr>
+                  <th scope="row">Mean</th>
+                  <td>$781.29</td>
+                  <td>$823.49</td>
+                </tr>
+                <tr>
+                  <th scope="row">Standard Deviation</th>
+                  <td>$1,404.94</td>
+                  <td>$1,604.46</td>
+                </tr>
+                <tr>
+                  <th scope="row">Minimum Value</th>
+                  <td>$0.00</td>
+                  <td>$25.00</td>
+                </tr>
+                <tr>
+                  <th scope="row">First Quartile</th>
+                  <td>$275.00</td>
+                  <td>$275.00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Second Quartile</th>
+                  <td>$500.00</td>
+                  <td>$500.00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Third Quartile</th>
+                  <td>$925.00</td>
+                  <td>$975.00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Maximum Value</th>
+                  <td>$500,000.00</td>
+                  <td>$500,000.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div></div>
+        
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+        <div class="col-sm-5">
+          <div class="well">
+          <div id="bar"></div>
+        </div></div>
+      </div>
+    </div>
+
+<!-- Row 3 of Dashboard-->
+
+        
+        <div class="container">
+          <div class="row">
+             <div class="col-sm-5">
+             <div class="well">
+             <div id="pie"></div>
+          </div></div>
+
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+
+        <div class="well">
+          <div class="col-sm-5">
+          <div id="sunburst"></div>
+        </div></div>
+
+      </div>
+    </div>
+ 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>

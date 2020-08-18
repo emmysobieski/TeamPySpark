@@ -1,0 +1,343 @@
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>Understanding Microlending through Analyzing Kiva Data</title>
+  
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+  
+    <!-- Custom styles for this template -->
+    <link href="css/business-casual.min.css" rel="stylesheet">
+  
+</head>
+
+
+
+<body>
+<!-- Navigation bar --> 
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #eb6841;">
+  <a class="navbar-brand" href="#">
+    <img class="d-inline-block align-top" src="img/pysparque.png" width="50" height="50" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="index.html">Home &nbsp;&nbsp;&nbsp;&nbsp;<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="about.html">About this project &nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="machinelearning.html">Machine Learning&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="dashboard.html">Explore the data&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a class="nav-item nav-link" href="outliers.html">Stories and outliers&nbsp;&nbsp;&nbsp;&nbsp;</a>
+      <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Meet the team</a>
+    </div>
+  </div>
+</nav>
+<!--Meet the Team model (part of nav bar)-->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="myModalLabel">PySpark Team Members</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Meet the PySpark Team!</p>
+                <p><img src="img/Emmy.jpg" class="figure-img img-fluid rounded" alt=""><strong>Emmy Sobieski</strong> has 25 year's experience as a technology analyst and recently decided to learn how to code, taking UC Berkeley Extension's Data Analytics Bootcamp.  Emmy is an advisor to Leaf Global Fintech which helps refugees have more financial resilience.  Emmy is also a member of Declare and Athena Alliance both of which support advancement women in the workplace and the board.  Emmy is also on the board of Community Resource Center which brings resilience and dignity to homeless, food insecure and domestic violence victims in San Diego.</p>
+                <p><img src="img/indir.png" class="figure-img img-fluid rounded" alt=""><strong>Omer Yildirim</strong> is a passionate and hardworking Jr. Data Analyst, who has a start-up about cryptocurrency exchange.</p>
+                <p><img src="img/sheri.jpg" class="figure-img img-fluid rounded" alt=""><strong>Sheri Potter Karasick</strong> is a non-profit executive leader with ten+ years experience in strategic leadership, board development, fundraising and cultivating new fiscal policies, market research, social impact strategy, technology use and implementation, communications, membership, strategic planning, component/chapter management and business development.</p>
+                <p><img src="img/Sravani.jpg" class="figure-img img-fluid rounded" alt=""><strong>Sravani Mylavarapu </strong>has a strong science and research background and loves to put together the technical side of data analytics together with the conceptual biotechnology and scientific side. She enjoys performing back-end data manipulation to format and make the data more presentable.</p>
+               
+              </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End navigation bar --> 
+
+<!--Page Title-->
+<h1 class="site-heading text-center text-white d-none d-lg-block">
+  <!--   <span class="site-heading-upper text-primary mb-3">Data Analysis to Inform</span>-->
+   <span class="site-heading-lower">Applying Machine Learning</span>
+</h1>
+
+<section class="page-section about-heading">
+  <div class="container">
+    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/Kiva2.png" alt="">
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+          <div class="bg-faded rounded p-5">
+            <div class="container">
+              <div class="row">
+
+  <div class="bg-faded rounded p-5">
+    <h2 class="section-heading mb-4">
+      <span class="section-heading-upper">Powerful Loans, Extraordinary Impact</span>
+      <span class="section-heading-lower">Data Analysis for Kiva</span>
+    </h2>
+    <h3>Abstract</h3>
+    <p>Team PySpark strove to inform the question: "Which of the variables tracked in the Kiva loan process is most influential in 
+      successful loan fulfillment?" Analysis of the Kiva lending framework led to many questions about the data that required additional 
+      research and exploration -- and interesting insights. </p>
+    <p>The Kiva loan to lender matched dataset provides 1,900,435 data points for evaluating relationship among multiple funding variables.  
+      Using machine learning tools, we examined the role of loan recipient gender, country, language, nature of the funded activity, and loan amount
+    to try and elucidate how multiple factors informed funding outcomes.  Because the dataset is overwhelmingly biased toward projects that were funded,
+    using "funded" or "not funded" as the truth test for model validity was ineffective.  The team then chose to pivot to examine the amount of time 
+    that elapsed from when a request for funding was posted to when the funding goal was achieved. </p>
+    
+    <p><img src="img/histogram.png" class="figure-img img-fluid rounded d-inline-block" alt="Histogram of Time Required to Fund a Loan"> </p>
+    <figcaption class="figure-caption text-right">asjfhoiahtepiahe</figcaption>The elapsed time variable was then used as a frame for exploring the contributing factors in loan success.  A histogram illustrated the distribution of 
+      time periods to allow for determination of clustering of the data into buckets. The data summary affiliated with the data that generated the histogram is as follows:</p>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Metric</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Total Value Count</th>
+            <td>1,845,152</td>
+          </tr>
+          <tr>
+            <th scope="row">Mean</th>
+            <td>12 days</td>
+          </tr>
+          <tr>
+            <th scope="row">Std Dev</th>
+            <td>13 days</td>
+          </tr>
+          <tr>
+            <th scope="row">Minimum Value</th>
+            <td>-382 days</td>
+          </tr>
+          <tr>
+            <th scope="row">First Quartile</th>
+            <td>3 days</td>
+          </tr>
+          <tr>
+            <th scope="row">Second Quartile</th>
+            <td>7 days</td>
+          </tr>
+          <tr>
+            <th scope="row">Third Quartile</th>
+            <td>18 days</td>
+          </tr>
+          <tr>
+            <th scope="row">Maximum Value</th>
+            <td>533 days</td>
+          </tr>
+        </tbody>
+      </table>
+
+    <p>The data clearly has significant outliers, however given the volume of the data the histogram 
+      shows that an overwhelming majority of the data falls in the same range and the outliers are 
+      nominal in their influence.  Data were analyzed two ways: 
+    <ul>
+      <li>Binary: Using the histogram, and summary statistics, 12 days (the mean) was used to separate 
+        the data into buckets for "quick" or "slow" funding rates.  
+      </li>
+      <li>Multiclass: A second analysis divided the data into six groups based on ?????[HOW WERE THESE GROUPS DETERMINED]
+      </li>
+    </ul></p>
+    <p>After data pre-processing, exploration, and application of multiple machine learning algorithms 
+      our findings were that logistic regression was the most insightful model for analyzing data 
+      performance.  Random forest was second in efficacy.  
+    </p>
+      
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Results</th>
+          <th scope="col">Logistic Regression</th>
+          <th scope="col">Logistic Regression</th>
+          <th scope="col">Random Forest</th>
+          <th scope="col">Random Forest</th>
+        </tr>
+        <tr>
+          <th scope="col">Results</th>
+          <th scope="col">0</th>
+          <th scope="col">1</th>
+          <th scope="col">0</th>
+          <th scope="col">1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="col">Precision</th>
+          <th scope="col">0.56</th>
+          <th scope="col">0.77</th>
+          <th scope="col">0.60</th>
+          <th scope="col">0.73</th>
+        </tr>
+        <tr>
+          <th scope="col">Recall</th>
+          <th scope="col">0.60</th>
+          <th scope="col">0.73</th>
+          <th scope="col">0.43</th>
+          <th scope="col">0.83</th>
+        </tr>
+        <tr>
+          <th scope="col">Spe</th>
+          <th scope="col">0.73</th>
+          <th scope="col">0.60</th>
+          <th scope="col">0.83</th>
+          <th scope="col">0.43</th>
+        </tr>
+        <tr>
+          <th scope="col">f1</th>
+          <th scope="col">0.58</th>
+          <th scope="col">0.75</th>
+          <th scope="col">0.50</th>
+          <th scope="col">0.78</th>
+        </tr>
+        <tr>
+          <th scope="col">geo</th>
+          <th scope="col">0.67</th>
+          <th scope="col">0.67</th>
+          <th scope="col">0.60</th>
+          <th scope="col">0.60</th>
+        </tr>
+        <tr>
+          <th scope="col">iba</th>
+          <th scope="col">0.44</th>
+          <th scope="col">0.45</th>
+          <th scope="col">0.35</th>
+          <th scope="col">0.38</th>
+        </tr>
+        <tr>
+          <th scope="col">sup</th>
+          <th scope="col">8,005</th>
+          <th scope="col">14,292</th>
+          <th scope="col">8,005</th>
+          <th scope="col">14,292</th>
+        </tr>
+      </tbody>
+    </table>
+    <br/><br/><br/>
+      <h3>How did the results inform our hypothesis?</h3>
+      <p>The results of our analysis were that the weight of each variable in informing the loan success 
+        equation were <strong>indeterminate</strong>.  When we pivoted to look at the influences on time to loan success, 
+        we were able to build a logistic regression model with 70% accuracy in predicting loan outcomes; 
+        however, through research on the Kiva loan process, confounding variables were identified that 
+        significantly influence analytical outcomes of the dataset. These confounding variables are so 
+        significant that analyses related to loan outcomes and rates of success are rendered moot in 
+        their validity.  In light of these effects, we were unable to disprove the null hypothesis.<br /><br /><img src="img/CorrelationChart.png" class="figure-img img-fluid rounded d-inline-block" alt="Correlation Chart of Database Variables"> </p>
+        <figcaption class="figure-caption text-right">This correlation chart, generated in Python using ______, demonstrates the lack of relationship between database variables.</figcaption></p>
+      <!--We were able to see a large variance and improvement in model performance with (1) cleaning and re-sampling data, (2) data selection between binary or multiple classification of y, (3) along with model tuning, and (4) Model selection. Because these microloans are from all over the world, and because most are pre-funded, there are likely important pieces of data missing from the original dataset, such as back-door relationships with large foundations who help the underprivileged, groups that help bring some of these borrowers through the process, and the always present but hard to measure human factor of personal networking. This missing data is likely why our models struggled to surpass 70% accuracy, though we did select the ones with the most balance between precision and recall (sensitivity). Finally, because all these loans fund (we removed the very few that expired or were refunded), we were measuring speed of funding.  That speed may have to do with other external forces that we are not aware of, that is not in the data, such as certain regions or funders being faster or slower, no matter who the borrower is or what the loan is for.  All these factors as well as people factors not in the data likely challenged our models accuracy.-->
+      <div class="col-md-6">
+        <p>
+       </div></p>
+    <br /><br /><br />
+
+
+    <h3 class="section-heading mb-4">
+      <span class="section-heading-upper">Data Preparation and Rationale for Key Decisions</span>
+      <span class="section-heading-lower">Machine Learning Model Summary Table</span>
+    </h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Model Tested</th>
+          <th scope="col">Efficacy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Sampling: Random Oversampling, SMOTE, Random Undersampling, Cluster Centroid, and Resampling using SMOTEEN</td>
+          <td>As a first step we took between 5-10% of the total data to work with as a random sample to optimize for performance.  5% of the data is 1.8 million rows.
+          <br /><br />
+            Performed all 5 sampling techniques on binary and multiclass buckets of time.  None of them worked effectively  on multiclass (as measured by model performance enhancement).  Random oversampling and Resampling using SMOTEEN worked the best (and had similar results) in terms of model performance , and we chose random oversampling for its fast compute time. 
+          <br /><br />
+            Cluster Centroid was far too slow and could not execute on the same amount of data.  Random Undersampling and SMOTE did not redistribute the data as well, thus did not help model performance as much.  
+            </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Scaling and PCA</td>
+          <td>
+            We scaled both multiclass and binary datasets because there was large differences in the absolute values of columns, for instance dollar value raised vs. binary 0 or 1 in other columns. 
+            <br /><br />
+            Then we ran PCA on binary classification and multiple classification. We found that all dimension are fairly equally important, such that there was a linear relationship between the explainability and number of dimensions used. Thus PCA was not helpful to reduce dimensionality. This was the case with both classifications. 
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Logistic regression</td>
+          <td>
+            With Logistic Regression, we sought to allow a borrower to predict the likelihood their loan will fund in under 12 days, which is represented by y = 1. This is binary, so we only used the binary categorized data.  
+            <br /><br />
+            We want to capture the highest percentage of true positives in the cases when it categorizes the result as 1, ie precision = True positives/(All positives). Recall or sensitivity represents capturing everyone who is actually positive at the expense of forecasting too many positives. For our purposes, (1) We want to focus on the statistics around the 1 not the 0 category, while maintaining some balance between precision and recall as expressed by f1. As you can see from the analysis image above, for logistic regression precision is 77%, recall is 73%, and f1 is 75%. For reasons stated in the previous paragraph, we want to favor precision. Average scores are the most balanced in this model at 69% precision, 69% recall, and 69% f1 which is showing a nice balance between precision and recall. Therefore, because we favor precision, THE LOGISTIC REGRESSION USING BINARY CLASSIFICATION OF “y” IS OUR BEST MODEL.  
+            <br /><br />
+            Logistic Regression had balanced performance out of the gate at average of 69% precision, 69% recall, and f1 of 69%. We used random oversampled (ROS) data in the model, but it really didn't make a difference in the performance. This could be an issue because 69% of the data is in the 1 category naturally, so we used the oversampled data to be sure we re-distributed the data such that the accuracy was more trustworthy than just the same chance of the data being where it predicts.
+
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Linear regression</td>
+          <td>Large means squared error of -1.29e23 which is -349.59. We DROPPED this model from our final notebook as linear regression does not appear to lend itself to this data.  Only used multiclass because linear regression “regresses” over a series of numbers, thus our evenly spaced time buckets from 1-5 served as this series.</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>Random Forest</td>
+         <td>What we are looking for in our random forest model is the ability for a borrower to predict the likelihood their loan will fund un under 12 days, which is represented by y = 1. Like in logistic regression, we want to capture the highest percentage of true positives in the cases when it categorizes the result as 1, ie precision = True positives/(All positives). Recall or sensitivity represents capturing everyone who is actually positive at the expense of forecasting too many positives. For our purposes, (1) We want to focus on the statistics around the 1 not the 0 category, while maintaining some balance between precision and recall as expressed by f1. As you can see from the analysis image above, random forest precision is 73%, recall is 83%, and f1 is 78%. While recall and f1 are higher for Random Forest, we give up 4 points of precision which is what we are optimizing for, while still looking for balance in our overall f1. Average scores are slightly lower in random forest than in logistical at 68% precision, 69% recall, and 68% f1. If it was just on average scores, the models would effectively be tied (notwithstanding the additional work of tuning Random Forest whereas logistical regression performed well out of the box), but because our focus is on precision of predicting 1, while not losing too much balance through average f1, logistical regression is our best model.
+          <br /><br />
+          For binary and multiclass, we tuned the model making the same changes but ended up with different settings for each.  
+          <br /><br />
+          Binary classification: We used ROS inputs and then tuned on the following parameters: n-estimates (50, 100, 200), max depth (originally set at 5, removed it and added 5-6 percentage points to the balanced accuracy, precision, recall and f1 scores. This model started out less predictive than logistic, but once tuned, came out ahead, at 68.7% balanced accuracy (came in as high as 70.2 once with a different sample taken of the original dataset - because we only take 5% there is some variability), and 68% precision, 69% recall, and 68% f1.
+          <br /><br />
+          Multiple classification: We used ROS inputs and then tuned on the following parameters: n-estimates (50, 100, 200), max depth (originally set at 5, removed it and added 5-6 percentage points to the balanced accuracy, precision, recall and f1 scores. Bucketing time by week into multiple buckets hurt the model performance. Our thesis is that by hand "distributing" the data in equal weeks, up to week 5, then the entire tail of the data in week 5, we made it more difficult to resample the data as it was bar-belled in two buckets, the first and the last. The result was accuracy of 40-45%, even after tuning the model extensively as described in the first part of this section.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">6</th>
+          <td>Support Vector Machines</td>
+          <td>SVMs using SVC library. Both using the binary and multiple (bucketed) classification datasets, SVMs came in 62-63% accuracy for the binary classification and even less for multiple classification data and took 30 minutes to multiple hours to complete. We DROPPED this model from the final notebook.</td>
+        </tr>
+        <tr>
+          <th scope="row">7</th>
+          <td>Neural Nets</td>
+          <td>We did not run neural nets as (1) We were wanting to understand components that were important to the speed of getting a loan funded, so could not use multiple layers in a neural net and get this information. (2) If we used one layer in a neural net, this is very close to how an SVM acts, so we used the SVM instead.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p>We were able to see a large variance and improvement in model performance with (1) cleaning and re-sampling data, (2) data selection between binary or multiple classification of y, (3) along with model tuning, and (4) Model selection. Because these microloans are from all over the world, and because most are pre-funded, there are likely important pieces of data missing from the original dataset, such as back-door relationships with large foundations who help the underprivileged, groups that help bring some of these borrowers through the process, and the always present but hard to measure human factor of personal networking. This missing data is likely why our models struggled to surpass 70% accuracy, though we did select the ones with the most balance between precision and recall (sensitivity). Finally, because all these loans fund (we removed the very few that expired or were refunded), we were measuring speed of funding. That speed may have to do with other external forces that we are not aware of, that is not in the data, such as certain regions or funders being faster or slower, no matter who the borrower is or what the loan is for. All these factors as well as people factors not in the data likely challenged our models accuracy.</p>
+
+
+      </div>
+    </div>
+  </div>
+    
+</body>
+
+
+
+<footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0 small">Copyright &copy; Your Website 2020</p>
+    </div>
+</footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+</html>
