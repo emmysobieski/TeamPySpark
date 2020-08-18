@@ -21,7 +21,7 @@
   <link href="css/business-casual.min.css" rel="stylesheet">
 
 
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     google.charts.load('current', {
       'packages':['geochart'],
@@ -155,7 +155,7 @@
 
     chart.draw(data, options);
   }
-</script>
+</script>-->
 </head>
 
 
@@ -237,14 +237,36 @@
                   <div class="col-md-6">
                    <p>Microlending has been a game changing way to address international poverty, social equity, and lack of educational parity. Kiva, started in 2005 by a young couple, launched a new strategy to effect social impact through microlending: focus on the progress of the people rather than the situational poverty. This landmark mindshift catalyzed a social movement where all people, everywhere are empowered to give opportunities to the world's most oppressed individuals at an unimaginable scale -- providing loans of more than $1 Billion dollars to date in 99 countries. <br /><br /><br /></p>
                   </div>
-                 
-                    <div class="col-md-6">
-                     <p><img src="img/description.png" class="figure-img img-fluid rounded" alt="Word Cloud of Description Column"> </p>
-                     <figcaption class="figure-caption text-right">The word cloud above was generated using the text in the "description" field of the Loans Database.  It emphasizes key points from the loan recipient dataset, and reinforces who the loans impact.</figcaption>
-                    </div>
-                    
+
+                  <div class="col-md-6">
+                    <p><img src="img/description.png" class="figure-img img-fluid rounded" alt="Word Cloud of Description Column"> </p>
+                    <figcaption class="figure-caption text-right">The word cloud above was generated using the text in the "description" field of the Loans Database.  It emphasizes key points from the loan recipient dataset, and reinforces who the loans impact.</figcaption>
+                   </div>
+
+                   <div class="row">
+                   <h3>About Kiva</h3>
+                     <ul>
+                     <li>International, non-profit crowd funding initiative that facilitates loans via the internet to 
+                     low-income entrepreneurs and students.</li>
+                     <li>Funds student tuition, entrepreneurial ventures, overhead or expansion costs for farmers and small business owners and emergency care.</li>
+                     <li>Achievements includes:
+                        <ul><li>over 1.9 million lenders from 77 different countries,</li> 
+                          <li>loans in excess of 1.5 billion dollars(USD) disbursed to 3.6 million borrowers, and</li>
+                          <li>kiva loans have a repayment rate of 95.6%.</li></ul>
+                    </ul>
+                  <p></p>    
+                  <h3><br />How does kiva work?</h3>
+                     <ol><li>A borrower applies for a loan</li>
+                      <li>The loan goes through the underwriting and approval process</li>
+                      <li>If the loan is approved, that loan is posted to kiva for lenders tosupport</li>
+                      <li>In fundraising period, Lenders crowdfund the loan in increments of $25 or more.</li>
+                      <li>When the fundraising is complete borrower use that money according to his/her need.
+                      <li>Then borrower repay the loan to lenders.</li>
+                      <li>Lenders use repayments to fund new loans, donate or withdraw themoney.</li></ol>
+
+                    </div><br /><br /> 
                     <!--Describing the Data set --big picture -->
-                    <h2 class="section-heading mb-4">
+                    <h2 class="section-heading mb-4"><br />
                       <span class="section-heading-upper">What are Kiva Loans?</span>
                       <span class="section-heading-lower">The Loan Equation</span>
                     </h2>
@@ -276,7 +298,7 @@
                                 <h2>
                                   Economic/Social Growth
                                 </h2>
-                                <p><img class="wrap" src="img/impactpic.png" width="30%" class="figure-img img-fluid rounded" alt=""><br />Empowered, loan recipients repay their loans and continue to grow their business.</p><br /><br />
+                                <p><img class="wrap" src="img/impactpic.png" width="30%" class="figure-img img-fluid rounded" alt=""><br />Empowered, loan recipients repay their loans and continue to grow their business.</p><br />
                                 </div>
                               </div>
                             </div>
@@ -289,7 +311,7 @@
                     <div class="row">
                       <div class="col-lg-10"><p>
                         Team PySpark strove to inform the question: "Which of the variables tracked in the Kiva loan process is most influential in successful loan fulfillment?"
-                      Analysis of the Kiva lending framework led to many questions about the data that required additional research and exploration -- and intersting insights.
+                      Analysis of the Kiva lending framework led to many questions about the data that required additional research and exploration -- and interesting insights.
                       </p></div>
           
                       <div class="col-md-6">
@@ -301,42 +323,71 @@
                       </div>  
                       <div class="row">
                        <div class="col-md-6">
-                        <p><strong>Locations</strong><br />Kiva loans are available to people globally and there was many country and location data that was used to create the map visualizations features in this website.  </p>
+                        <p><strong>Locations</strong><br />Kiva loans are available to people globally and there was many country and location data that was used to create the map visualizations featured in this website.  </p>
                        </div>   
                        <div class="col-md-6">
                         <p><strong>Tags</strong><br />This column lists hashtags linked with the user input and common words used to explain lender and borrower experience. This field was used to generate word cloud visualizations which highlighted the reoccurring tags. </p>
                        </div>
                       </div> 
-                      <div class="col-lg-10"><p>
-                        After building initial familiarity with the dataset, we postulated the following hypothesis for testing:
-                        
+                      <div class="col-lg-11"><p>
+                        <br />
+                        <h3>Hypothesis</h3>
+                        After building initial familiarity with the dataset, we postulated the following hypothesis for testing: <em>If machine learning can be used to identify key contributing factors, then we will be able to determine how to expedite a loan’s time to successful funding.</em>
+                        <br /><br /><br />
+
                       </p></div>
-          
-<!--Interactive google map-->
-                 <!--<div class="about-heading-content">-->
-                  <div class="row">
-                    <div class="col-xl-11 col-lg-10 mx-auto">
-                      <!--<div class="bg-faded rounded p-5">
-                        <div class="bg-faded rounded p-5">-->
-                          <h2 class="section-heading mb-4">
-                            <span class="section-heading-upper">Interactive Data Map</span>
-                            <span class="section-heading-lower">Funding by Country</span>
-                          </h2>
-                         <div id="regions_div" style="max-height: 100%; max-width: 100%; align-content: center"></div>
-                          <p><br />Kiva funds loans internationally, some areas of the world receive more funding than others.  The map itself led to these insights about the data:
-                          <ul>
-                            <li>Three countries received approximately $100 million dollars.  Far more than any other country.  These three countries include: Peru, Kenya and the Phillipines.                             </li>
-                            <li>There was no funding at all on the Australian continent and very little in the Eurasian area.</li>
-                            <li>The United States received quite a bit of funding. Microloans often carry a connotation of serving extremely impoverished communities, the finding that the US received so much funding was surprising. </li>
-                          </ul>
-                          
-                          </p>
-                          </div>
-                       <!--</div>
-                    </div>-->
-                  </div>
-                </div>
-<!-- End interactive google map -->
+
+                      <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">What drives a Kiva loan?</span>
+                        <span class="section-heading-lower">Data Exploration Roadmap</span>
+                      </h2>
+                      <div class="row">
+                        <div class="col-lg-10">
+                          <p><h3>Identify Data Sources</h3>
+                            
+                              <em>Kiva.org, Data Snapshots</em>
+                                <ul>
+                                  <li>Loan detail database</li>
+                                  <li>Lender detail database</li>
+                                  <li>Dataset with combined loan and lender data</li>
+                                  <li>Retrieved from the Kiva website</li>
+                                </ul>
+
+                                <em>Kaggle</em>
+                                <ul>
+                                  <li><a href="https://www.kaggle.com/kiva/data-science-for-good-kiva-crowdfunding">Location data such as country, latitude, and longitude:</a></li>
+                                  <li>United Nations Country Variables: <a href="https://www.kaggle.com/sudalairajkumar/undata-country-profiles">United Nations Country Variables</a></li>
+                                </ul>
+                              <hr>
+                              <h3>Exploration of the data</h3>
+                                <ul>
+                                  <li>Pandas library for data preprocessing</li>
+                                  <li>pgAdmin for joining two datasets and creating database</li>
+                                  <li>Formatting and merging data as needed</li>
+                                  <li>Scaling, 5 Sampling techniques for imbalanced skewed data, PCA, SciKitLearn, IMBLearn executed in Jupyter Notebooks</li>
+                                  <li>Google Colab to run machine learning algorithms with NLP using PySpark</li>
+                                </ul>
+                                <hr>
+                              <h3>Visualization of the data</h3>
+                                <ul>
+                                  <li>Google charts with API  for location data plotting to create interactive maps</li>
+                                  <li>Plotly/Matplotlib libraries for data visualizations</li> 
+                                  <li>Bubble, bar, pie, and sunburst charts created in JavaScript</li>
+                                </ul>
+                                <hr>
+                              <h3>Analysis</h3>
+                                <ul>
+                                  <li>ML models efficacy determined by accuracy, precision, and recall scores</li>
+                                  <li>Best chosen based on multiple factors</li>
+                                </ul>
+                                <hr>
+                              <h3>Presentation</h3> 
+                                <ul>
+                                  <li>JavaScript and HTML for dashboard creation </li>
+                                  <li>HTML, CSS and JavaScript for interactive web presentation</li>
+                                </ul>
+                                </p></div>
+
 
               </div>
           </div>
