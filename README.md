@@ -1,6 +1,6 @@
 # TeamPySpark
 
-![Website Landing Page Image](Misc/LP.png)
+![Website Landing Page Image](Misc/home.png)
  
 Link to dashboard (or link to video of dashboard demonstration)
 
