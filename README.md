@@ -6,7 +6,7 @@ Link to dashboard (or link to video of dashboard demonstration)
 
  [Google Slides Presentation](https://docs.google.com/presentation/d/1_PMTb9D7JATLUvOpR_WDij9qfOgb7B80TdIEhfzbzYs/edit?usp=sharing)
 
-Selected topic
+
 ## Microloans from the loan recipient's perspective
 
 #### Why microlending?
@@ -144,13 +144,21 @@ SciKitLearn is the ML library we'll be using to create a classifier. We plan to 
 #### Dashboard
 Bootstrap tools are integrated with JavaScipt code to create a website that will communicate project results and impact.  Interactive tools that rely on D3 selectors will empower site visitors to browse the variety of portfolios of exprience that lenders have with as part of the Kiva community.   will be used for website design, using D3.js for a fully functioning and interactive dashboard, and javascript plotly for graphs. 
 
-## Analytical outcomes and future analysis
-
 #### Result of analysis
+We ran Linear and Logistic Regressions, as well as Support Vector Machines and Random Forest.  We did not run NN as SVMs are similar to 1 layer NN. Model accuracy ranged from 40% to 69%. Logistic Regression had solid performance of 69% precision, 69% recall and f1 of 69%. Focus on precision (capture true positives of a loan funding fast). On 1: Precision 77% vs 73% RF, Recall 73% vs 83% RF,  f1 75% vs 78% RFPotential Issues: 69% of the  data is in the 1 category.Using Random Oversampling (RPOS), we rebalanced data
 
 #### Recommendation for future analysis
+RESEARCH
+Research the true drivers of speed to lending
+What is under the borrower’s control? (amount, industry chosen)
+What is driven by other factors? (relationships, local NGAs, foundations)
+DATA
+Once we are able to research any drivers of speed of funding, then find ways to gather that data to add it to the data we used
+Keep reviewing which data should be included or excluded
 
 #### Anything the team would have done differently
+It was a pleasure to work together as a team.  Because the team enjoyed collaborating, we feel that we were empowered to explore tools and technologies that were outside of what we learned in class.  We embraced scope creep!
+Perhaps we could have switched roles more often, but truly we enjoyed every minute of supporting each other and working on what interested us, in a true Agile organization spirit.
 
 ## Communication Protocols 
 The team was in continuous collaboration and communicaution using a dedicated Slack channel.  Beyond meeting in class as a full team, all members also joined a regular Monday meeting that lasted for an hour to touch base on project details and continue forward movement.  Daily Zoom calls between team members took place to collaborate on various project components, assignment of activities, and project idea generation.  
