@@ -2,7 +2,7 @@
 
 ![Website Landing Page Image](Misc/home2.png)
  
-[Link to dashboard website](Misc/website.zip)
+[Link to dashboard website](Misc/website.zip) (Must be loaded onto local CORS server for all applications to work.)
 
  [Google Slides Presentation](https://docs.google.com/presentation/d/1_PMTb9D7JATLUvOpR_WDij9qfOgb7B80TdIEhfzbzYs/edit?usp=sharing)
 
