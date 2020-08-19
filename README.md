@@ -10,7 +10,7 @@
 ## Microloans from the loan recipient's perspective
 
 #### Why microlending?
-Microlending has been a game changing way to address international poverty, social equity, and lack of educational parity.  Kiva, started in 2005 by a young couple, launched a new strategy to effect social impact through microlending: focus on the progress of the people rather than the situational poverty.  This landmark mindshift catalyzed a social movement where all people, everywhere are empowered to give opportunities to the world's most oppressed individuals at an unimaginable scale -- providing loans of more than $1 Billion dollars to date in 99 countries.
+Microlending has been a game changing way to address international poverty, social equity, and lack of educational parity. Kiva, started in 2005 by a young couple, launched a new strategy to effect social impact through microlending: focus on the progress of the people rather than the situational poverty.  This landmark mindshift catalyzed a social movement where all people, everywhere are empowered to give opportunities to the world's most oppressed individuals at an unimaginable scale -- providing loans of more than $1 Billion dollars to date in 99 countries.
 
 #### Microloans are an important tool to help small entrepreneurs launch businesses.  
 Today income inequality is the worst in decades.  We have seen this in the US and globally where the rich get richer, the poor struggle more and the middle class of many societies is hollowed out.  
@@ -145,20 +145,13 @@ SciKitLearn is the ML library we'll be using to create a classifier. We plan to 
 Bootstrap tools are integrated with JavaScipt code to create a website that will communicate project results and impact.  Interactive tools that rely on D3 selectors will empower site visitors to browse the variety of portfolios of exprience that lenders have with as part of the Kiva community.   will be used for website design, using D3.js for a fully functioning and interactive dashboard, and javascript plotly for graphs. 
 
 #### Result of analysis
-We ran Linear and Logistic Regressions, as well as Support Vector Machines and Random Forest.  We did not run NN as SVMs are similar to 1 layer NN. Model accuracy ranged from 40% to 69%. Logistic Regression had solid performance of 69% precision, 69% recall and f1 of 69%. Focus on precision (capture true positives of a loan funding fast). On 1: Precision 77% vs 73% RF, Recall 73% vs 83% RF,  f1 75% vs 78% RFPotential Issues: 69% of the  data is in the 1 category.Using Random Oversampling (RPOS), we rebalanced data
+We ran Linear and Logistic Regressions, as well as Support Vector Machines and Random Forest.  We did not run NN as SVMs are similar to 1 layer NN. Model accuracy ranged from 40% to 69%. Logistic Regression had solid performance of 69% precision, 69% recall and f1 of 69%. Focus on precision (capture true positives of a loan funding fast). On 1: Precision 77% vs 73% RF, Recall 73% vs 83% RF,  f1 75% vs 78% RFPotential Issues: 69% of the  data is in the 1 category. Using Random Oversampling (RPOS), we rebalanced the data.
 
 #### Recommendation for future analysis
-RESEARCH
-Research the true drivers of speed to lending
-What is under the borrower’s control? (amount, industry chosen)
-What is driven by other factors? (relationships, local NGAs, foundations)
-DATA
-Once we are able to research any drivers of speed of funding, then find ways to gather that data to add it to the data we used
-Keep reviewing which data should be included or excluded
+In the future, the true drivers of speed to lending can be researched to fully understand the big picture of microlending. Also, it is important to understand the borrower's control such as which activity is chosen or the amount needed for the loan. Thus, more in depth research is needed. After the research phase, specific data needs to be found that will help the case stronger and provide for better hypothesis testing. It is also important to understand which type of data should be included in the main analysis and exploration phase. 
 
 #### Anything the team would have done differently
-It was a pleasure to work together as a team.  Because the team enjoyed collaborating, we feel that we were empowered to explore tools and technologies that were outside of what we learned in class.  We embraced scope creep!
-Perhaps we could have switched roles more often, but truly we enjoyed every minute of supporting each other and working on what interested us, in a true Agile organization spirit.
+It was a pleasure to work together as a team.  Because the team enjoyed collaborating, we feel that we were empowered to explore tools and technologies that were outside of what we learned in class. Perhaps we could have switched roles more often, but truly we enjoyed every minute of supporting each other and working on what interested us, in a true Agile organization spirit.
 
 ## Communication Protocols 
 The team was in continuous collaboration and communicaution using a dedicated Slack channel.  Beyond meeting in class as a full team, all members also joined a regular Monday meeting that lasted for an hour to touch base on project details and continue forward movement.  Daily Zoom calls between team members took place to collaborate on various project components, assignment of activities, and project idea generation.  
