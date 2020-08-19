@@ -85,8 +85,8 @@ function buildMetadata(sample) {
               xaxis: {title: "Average Number of Days until Funding Success"},
               yaxis: {title: "Total Loans for Country (in USD)"},
               //showlegend: true,
-              height: 400,
-              width: 600
+              height: 550,
+              width: 870
           };
 
           Plotly.newPlot("bubble", data2, layout);
@@ -150,8 +150,8 @@ function buildMetadata(sample) {
       var layout5 = {
         title: 'Most Funded Activities Globally',
         margin: {l: 0, r: 0, b: 0, t: 50},
-        width: 500,
-        height: 500,
+        width: 400,
+        height: 400,
         sunburstcolorway:["#636efa","#ef553b","#00cc96"]
       };
       
