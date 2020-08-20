@@ -1,4 +1,4 @@
-# TeamPySpark
+# TeamPySpark 
 
 ![Website Landing Page Image](Misc/home2.png)
  
@@ -7,7 +7,7 @@
  [Google Slides Presentation](https://docs.google.com/presentation/d/1_PMTb9D7JATLUvOpR_WDij9qfOgb7B80TdIEhfzbzYs/edit?usp=sharing)
 
 
-## Microloans from the loan recipient's perspective
+## Microloans from the borrower's perspective
 
 #### Why microlending?
 Microlending has been a game changing way to address international poverty, social equity, and lack of educational parity. Kiva, started in 2005 by a young couple, launched a new strategy to effect social impact through microlending: focus on the progress of the people rather than the situational poverty.  This landmark mindshift catalyzed a social movement where all people, everywhere are empowered to give opportunities to the world's most oppressed individuals at an unimaginable scale -- providing loans of more than $1 Billion dollars to date in 99 countries.
