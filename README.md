@@ -159,6 +159,7 @@ The team was in continuous collaboration and communicaution using a dedicated Sl
 ## References
 
 [MIT Analysis of kiva](https://courses.media.mit.edu/2010fall/mas622j/Projects2010/JuliaMa_HodaEydgahi_AndyBardagjy.pdf)
+
 [Linear Regression for kiva](https://alan.do/searching-for-the-response-variable-linear-regressions-on-kiva-microloan-data-efa71318805e)
 
 
