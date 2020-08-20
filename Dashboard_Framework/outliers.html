@@ -24,16 +24,7 @@
     <!-- Custom styles for this template -->
     <link href="css/business-casual.min.css" rel="stylesheet">
 
-    <!--Google Map with six "travel" points for exploring the data.-->
-    <!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
-   
-    <!--<script 
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVqJwVWZw__ePPTHCH-XGAvmqd4vJxzi0&callback=initMap&libraries=&v=weekly"
-      defer ></script>
-    <script src='js/map.js'></script>-->
-      <!--//});
-      //google.charts.load(initMap);
-      //google.charts.setOnLoadCallback(initMap);-->
+
    <script>
       "use strict";
     
@@ -48,9 +39,6 @@
          ]
         
          console.log(data[0])
-          // The location of Uluru
-          //var uluru = {lat: -25.344, lng: 131.036};
-          // The map, centered at Uluru
           var map = new google.maps.Map(document.getElementById("map"), {
             zoom: 2,
             center: {lat:41.0082, lng:28.9784}
@@ -65,14 +53,11 @@
             '<div id="content">' +
             '<div id="siteNotice">' +
             "</div>" +
-            '<h1 id="firstHeading" class="firstHeading">Loan Informations</h1>' +
+            '<h4 id="firstHeading" class="firstHeading">Loan Highlight</h4>' +
             '<div id="bodyContent">' +
-            "<p>LOAN NAME: "+loan_name+"</p>" +
-            "<p>ACTIVITY NAME: "+activity_name+"</p>" +
-            "<p>TOWN NAME: "+town_name+"</p>" +
-            "<p>COUNTRY NAME: "+country_name+"</p>" +
-            "<p>LOAN AMOUNT: "+loan_amount+"</p>" +
-            "<p>DESCRIPTION: "+loan_description+"</p>" +
+            "<p><strong>"+loan_name+" in "+town_name+", "+country_name+"</strong></p>" +
+            "<p>Type of Activity: "+activity_name+"</p>" +
+            "<p>About the Loan: "+loan_amount+", "+loan_description+"</p>" +
 
             "</div>" +
             "</div>";
@@ -162,7 +147,7 @@
                     <div class="bg-faded rounded p-5">
                       <h2 class="section-heading mb-4">
                         <span class="section-heading-upper">Powerful Loans, Extraordinary Impact</span>
-                        <span class="section-heading-lower">The Stories and the Outliers</span>
+                        <span class="section-heading-lower">Stories and Outliers</span>
                       </h2>
                 
                       <div class="container">

@@ -23,9 +23,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <style>
           .navbar-nav {
-          background-color:#eb6841;
-          font-family:Lora
-          }
+            background-color:#eb6841;
+            font-family:Lora
+            }
           @media (min-width:992px){
           .navbar-expand-lg {
             flex-flow: row nowrap;
@@ -61,6 +61,102 @@
           }
           body {background-color: whitesmoke;
           }
+          body{
+     font-family: Lora;
+     background-image:linear-gradient(rgba(47,23,15,.65),rgba(47,23,15,.65)),url(../img/bg1.png);
+     background-attachment:fixed;
+     background-position:center;
+     background-size:cover
+    }
+    
+h1,h2,h3,h4,h5,h6{
+     font-family:Raleway
+}
+
+     /*! added from dashboard page*/
+      .chart {
+        max-height: calc(200px + 20px) !important;
+        overflow: hidden;
+      }
+      .jumbotron {
+      background-image: url("https://www.genglobal.org/sites/default/files/2019-11/kiva%20pic.png");
+      background-size: 100% 100%;
+      text-align: center;
+      }
+
+      body {background-color: whitesmoke;}
+  
+      div.polaroid {
+        width: 284px;
+        padding: 10px 10px 20px 10px;
+        border: 1px solid #BFBFBF;
+        background-color: white;
+        box-shadow: 10px 10px 5px #aaaaaa;
+        }
+        div.rotate_right {
+          float: left;
+          -ms-transform: rotate(7deg); /* IE 9 */
+          -webkit-transform: rotate(7deg); /* Safari */
+          transform: rotate(7deg);
+        }
+  
+        div.rotate_left {
+          float: left;
+          -ms-transform: rotate(-8deg); /* IE 9 */
+          -webkit-transform: rotate(-8deg); /* Safari */
+          transform: rotate(-8deg);
+        }
+
+    
+     
+        p{
+            line-height: 1.75;
+            }
+
+            .text-faded{
+                color:rgba(255,255,255,.3)
+                }
+            .site-heading{
+                margin-top:5rem;
+                margin-bottom:5rem;
+                text-transform:uppercase;
+                line-height:1;
+                font-family:Raleway
+                }
+            .site-heading 
+            .site-heading-upper{
+                display:block;
+                font-size:2rem;
+                font-weight:800
+                }
+            .site-heading 
+            .site-heading-lower{
+                font-size:5rem;
+                font-weight:100;
+                line-height:4rem
+                }
+                .page-section{
+                    margin-top:5rem;margin-bottom:5rem
+                }
+                .section-heading{
+                    text-transform:uppercase
+                }
+                .section-heading 
+                .section-heading-upper{
+                    display:block;
+                    font-size:1rem;
+                    font-weight:800
+                }
+                .section-heading 
+                .section-heading-lower{
+                    display:block;
+                    font-size:3rem;
+                    font-weight:100
+                }
+                .bg-faded{
+                    background-color:rgba(255,255,255,.85)
+                }
+    
 
         </style>
 
@@ -250,149 +346,145 @@
 <!-- End navigation bar --> 
 
 <!--Page Title-->
-<h1 class="site-heading text-center text-white d-none d-lg-block">
-   <!--   <span class="site-heading-upper text-primary mb-3">Data Analysis to Inform</span>-->
-    <span class="site-heading-lower">Data Dashboard</span>
-</h1>
+
 
 <section class="page-section about-heading">
-  <div class="container">
-    <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/Kiva2.png" alt="">
-  </div>
+  <h1 class="site-heading text-center text-white d-none d-lg-block">
+    <span class="site-heading-lower">Data Dashboard</span>
+  </h1>
   
-    <div class="about-heading-content">
-      <div class="row">
-        <div class="col-xl-9 col-lg-10 mx-auto">
-          <div class="bg-faded rounded p-5">
-
-
-
-
-<!-- Row 1 of Dashboard-->
+  <section class="page-section about-heading">
     <div class="container">
+      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/data2.png" alt="">
+      <div class="about-heading-content">
+        <div class="row">
+          <div class="col-xl-9 col-xl-11 mx-auto">
+            <div class="bg-faded rounded p-5">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Powerful Loans, Extraordinary Impact</span>
+                <span class="section-heading-lower">Data Analysis for Kiva</span>
+              </h2>
+              <div class="container">
+                <div class="row">
+                  
+                  <div class="col-lg-10">
+                    <div class="well">
+                    <div id="regions_div" style="max-height: 100%; max-width: 100%; align-content: center"></div>
+                    <p><br />Kiva funds loans internationally, some areas of the world receive more funding than others.  The map itself led to these insights about the data:
+                    <ul>
+                      <li>Three countries received approximately $100 million dollars.  Far more than any other country.  These three countries include: Peru, Kenya and the Phillipines.                             </li>
+                      <li>There was no funding at all on the Australian continent and very little in the Eurasian area.</li>
+                      <li>The United States received quite a bit of funding. Microloans often carry a connotation of serving extremely impoverished communities, the finding that the US received so much funding was surprising. </li>
+                    </ul>
+                    </p>
+                    </div>
+                  </div> 
+                </div>
 
-      <div class="row">
-        <!--Interactive google map-->
-                    
-                      <div class="bg-faded rounded p-5">
-                          <h2 class="section-heading mb-4">
-                            <span class="section-heading-upper">Interactive Data Map</span>
-                            <span class="section-heading-lower">Funding by Country</span>
-                          </h2>
-                         <div id="regions_div" style="max-height: 100%; max-width: 100%; align-content: center"></div>
-                          <p><br />Kiva funds loans internationally, some areas of the world receive more funding than others.  The map itself led to these insights about the data:
-                          <ul>
-                            <li>Three countries received approximately $100 million dollars.  Far more than any other country.  These three countries include: Peru, Kenya and the Phillipines.                             </li>
-                            <li>There was no funding at all on the Australian continent and very little in the Eurasian area.</li>
-                            <li>The United States received quite a bit of funding. Microloans often carry a connotation of serving extremely impoverished communities, the finding that the US received so much funding was surprising. </li>
-                          </ul>
-                          
-                          </p>
-                          </div>
-                       <!--</div>
-                    </div>-->
 
-<!-- End interactive google map -->
-</div><br />
 
-<!-- Row 1 of Dashboard-->
-<div class="container">
-  <div class="row">
-    
-      <div class="well">
-    <h3>Descriptive Summary of Loans</h3>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Funded Amount</th>
-              <th scope="col">Loan Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Count of Values</th>
-              <td>1,900,375</td>
-              <td>1,900,375</td>
-            </tr>
-            <tr>
-              <th scope="row">Mean</th>
-              <td>$781.29</td>
-              <td>$823.49</td>
-            </tr>
-            <tr>
-              <th scope="row">Standard Deviation</th>
-              <td>$1,404.94</td>
-              <td>$1,604.46</td>
-            </tr>
-            <tr>
-              <th scope="row">Minimum Value</th>
-              <td>$0.00</td>
-              <td>$25.00</td>
-            </tr>
-            <tr>
-              <th scope="row">First Quartile</th>
-              <td>$275.00</td>
-              <td>$275.00</td>
-            </tr>
-            <tr>
-              <th scope="row">Second Quartile</th>
-              <td>$500.00</td>
-              <td>$500.00</td>
-            </tr>
-            <tr>
-              <th scope="row">Third Quartile</th>
-              <td>$925.00</td>
-              <td>$975.00</td>
-            </tr>
-            <tr>
-              <th scope="row">Maximum Value</th>
-              <td>$500,000.00</td>
-              <td>$500,000.00</td>
-            </tr>
-          </tbody>
-        </table>
+
+            <!-- Page Layout -->
+            <div class="container">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="well">
+                    <div class="bg-faded rounded p-5">
+                      <h3>Descriptive Summary of Loans</h3>
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Funded Amount</th>
+                            <th scope="col">Loan Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Count of Values</th>
+                            <td>1,900,375</td>
+                            <td>1,900,375</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Mean</th>
+                            <td>$781.29</td>
+                            <td>$823.49</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Standard Deviation</th>
+                            <td>$1,404.94</td>
+                            <td>$1,604.46</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Minimum Value</th>
+                            <td>$0.00</td>
+                            <td>$25.00</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">First Quartile</th>
+                            <td>$275.00</td>
+                            <td>$275.00</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Second Quartile</th>
+                            <td>$500.00</td>
+                            <td>$500.00</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Third Quartile</th>
+                            <td>$925.00</td>
+                            <td>$975.00</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Maximum Value</th>
+                            <td>$500,000.00</td>
+                            <td>$500,000.00</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="well"><br /><br />
+                  <div id="bar"><br /><br /><br />
+                  </div>
+                </div>
+              </div>
       </div>
-    
-    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    </div>
+<!-- Row 1 of Dashboard-->
 
-      
-      <div class="well">
-      <div id="bar"></div>
-    </div></div>
-  </div>
-</div>
-<br />
     <div class="container">  
       <div class="row">
-        <div class="col-sm-4">
-
+        <div class="col-sm-5" bg="light" shadow="p-3 mb-5 bg-white rounded">
             <div class="well">
             <h3>About this dashboard</h3>
-            <p>hasfohaofbewotb</p>
+            <p>Use the dropdown to select a country name and view its financial and demographic information in the "Country Details" 
+              area to the right.<br /><br /></p>
             <h4>Select a Country:</h4>
-            <select id="selDataset" onchange="optionChanged(this.value)"></select><br />
-            </div>
-          
+            <select id="selDataset" onchange="optionChanged(this.value)"></select><br /><br />
+            </div><br />
+          </div>
+
               <div>&nbsp;</div>
-        
+          <div class="col-sm-5">
             <div class="panel panel-primary">
             <div class="panel-heading">
               <h3 class="panel-title">Country Details</h3></div>
               <div id="sample-metadata" class="panel-body" bg="light" shadow="p-3 mb-5 bg-white rounded"></div>
-            </div>  
-    
-              <div>&nbsp;</div>
-      
-        </div>
+          </div>  
+      </div>       
+    </div>
 
-            <div class="col-md-7">
-              <div class="well">
-              <h3>Examining Funding by Country</h3>
-                <div id="bubble"></div>
+
+    <div class="container">  
+      <div class="row">
+          <div class="col-lg-10">
+            <div class="well">
+            <h3>Examining Funding by Country</h3>
+              <div id="bubble"></div>
             </div>
-
-           
         </div>
       </div>
     </div>
@@ -401,32 +493,26 @@
 <!-- Row 3 of Dashboard-->
 
         
-        <div class="container">
-          <div class="row">
-
-              <div class="bg-faded rounded p-12">
-                <div class="well">
-                <div id="pie"></div>
-                </div>
-              </div>
-
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-
-
-              <div class="well">
-                <div class="col-sm-5">
-                <div id="sunburst"></div>
-              </div></div>
-
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="well">    
+            <div id="pie"></div>
             </div>
           </div>
 
+        
+          <div class="col-sm-5">
+            <div class="well">
+          <div id="sunburst"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="js/kivaplots.js"></script>
-
-
+</div>
   <footer class="footer text-faded text-center py-5">
     <div class="container">
       <p class="m-0 small">Copyright &copy; Team PySpark 2020</p>
@@ -436,6 +522,9 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="js/kivaplots.js"></script>
   
   </body>
   
